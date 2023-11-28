@@ -2254,11 +2254,7 @@ ul.cart-list > li.total > .btn:hover {
   background-color: #b0b435;
   box-shadow: none;
 }
-.new-account-login h5 {
-  font-size: 18px;
-  color: #1111111;
-  font-weight: 600;
-}
+
 .new-account-login h5 a:hover {
   color: #b0b435;
 }
