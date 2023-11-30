@@ -71,7 +71,7 @@
                                             while ($sub_cat_res = mysqli_fetch_assoc($sql_sub_category)){
                                         ?>
                                             <li>
-                                                <a href="shop?id=<?php echo $sub_cat_res['id'] ?>" ><?php echo $sub_cat_res['sub_category'] ?></a>
+                                                <!-- <a href="shop?id=<?php echo $sub_cat_res['id'] ?>" ><?php echo $sub_cat_res['sub_category'] ?></a> -->
                                             </li>
                                         <?php } ?>
                                     </ul>
