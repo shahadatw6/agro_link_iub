@@ -37,17 +37,7 @@ $total_delivery_boy = mysqli_num_rows(mysqli_query($con,"select * from delivery_
                 display: true,
                 text: 'User Distribution'
             },
-            plugins: {
-                datalabels: {
-                    color: '#fff',
-                    formatter: (value, ctx) => {
-                        return value;
-                    },
-                    font: {
-                        weight: 'bold'
-                    }
-                }
-            }
+
         }
     });
 </script>
