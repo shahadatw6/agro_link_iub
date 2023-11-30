@@ -160,7 +160,7 @@ if($cur_path=='' || $cur_path=='index'){
           <li class="nav-item">
             <a class="nav-link" href="vendores">
               <i class="fa fa-handshake-o" aria-hidden="true"></i>
-              <span class="menu-title">Vendors</span>
+              <span class="menu-title">Farmers</span>
             </a>
           </li>
 		      <li class="nav-item">
@@ -172,18 +172,18 @@ if($cur_path=='' || $cur_path=='index'){
 		      <li class="nav-item">
             <a class="nav-link" href="coupon_code">
               <i class="fa fa-btc" aria-hidden="true"></i>&nbsp;&nbsp;
-              <span class="menu-title">Coupon Code</span>
+              <span class="menu-title">Promo Code</span>
             </a>
           </li>
 		  
 		     
 		  
-		      <li class="nav-item">
+		      <!-- <li class="nav-item">
             <a class="nav-link" href="banner">
               <i class="fa fa-sliders" aria-hidden="true"></i>&nbsp;&nbsp;
               <span class="menu-title">Banner</span>
             </a>
-          </li>
+          </li> -->
 		  
 		      <li class="nav-item">
             <a class="nav-link" href="contact_us">
@@ -192,12 +192,12 @@ if($cur_path=='' || $cur_path=='index'){
             </a>
           </li>
 
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" href="about_us">
               <i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;&nbsp;
               <span class="menu-title">About Us</span>
             </a>
-          </li>
+          </li> -->
 		  
           <?php } ?>
         </ul>
