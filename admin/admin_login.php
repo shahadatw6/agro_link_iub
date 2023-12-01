@@ -1,7 +1,7 @@
 <?php
     if(isset($_GET['id']) && $_GET['id']>0){
         echo "<script>
-            alert('Congractulation ! Your Email Id sussesfuly Verifed Please Login Now');
+            alert('Congratulation ! Your Email Id sussesfuly Verifed Please Login Now');
         </script>";
     }
     session_start();
