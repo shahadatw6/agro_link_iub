@@ -10,23 +10,21 @@
             <div class="nav_menu">
                 <ul class="d-flex">
                     <li>
-                        <a href="<?php echo WEBSITE_PATH; ?>index">home</a>
+                        <a href="index.html">home</a>
                     </li>
                     <li>
-                        <a href="<?php echo WEBSITE_PATH; ?>about">about</a>
+                        <a href="about.html">about</a>
                     </li>
                     <li>
-                        <a href="<?php echo WEBSITE_PATH; ?>shop">shop</a>
+                        <a href="<?php echo WEBSITE_PATH; ?>shop.php">shop</a>
                     </li>
-                    <li>
-                        <a href="<?php echo WEBSITE_PATH; ?>contact">contact</a>
-                    </li>
+
                     <?php if(!isset($_SESSION['USER_LOGIN'])){?>
                         <li>
-                            <a href="<?php echo WEBSITE_PATH; ?>registration">signup</a>
+                            <a href="<?php echo WEBSITE_PATH; ?>registration.php">signup</a>
                         </li>
                         <li>
-                            <a href="<?php echo WEBSITE_PATH; ?>login">login</a>
+                            <a href="<?php echo WEBSITE_PATH; ?>login.php">login</a>
                         </li>
                     <?php }else{?>
                         <li>
@@ -34,9 +32,9 @@
                                 Hello ,  <span><?php echo $_SESSION['USER_NAME']; ?></span>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="<?php echo WEBSITE_PATH; ?>profile">Profile</a>
-                                <a class="dropdown-item" href="<?php echo WEBSITE_PATH; ?>orders">Orders</a>
-                                <a class="dropdown-item" href="<?php echo WEBSITE_PATH; ?>logout.">LogOut</a>
+                                <a class="dropdown-item" href="<?php echo WEBSITE_PATH; ?>profile.php">Profile</a>
+                                <a class="dropdown-item" href="<?php echo WEBSITE_PATH; ?>orders.php">Orders</a>
+                                <a class="dropdown-item" href="<?php echo WEBSITE_PATH; ?>logout.php">LogOut</a>
                             </div>
                         </li>
                     <?php }?>
