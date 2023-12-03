@@ -1,4 +1,35 @@
-* {
+*
+
+/*------------------------------------------------------------------
+    IMPORT FONTS
+-------------------------------------------------------------------*/
+
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800");
+@import url("https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700");
+
+/*
+
+    font-family: 'Poppins', sans-serif;
+
+    font-family: 'Dosis', sans-serif;
+
+*/
+
+/*------------------------------------------------------------------
+    IMPORT FILES
+-------------------------------------------------------------------*/
+
+@import url(all.css);
+@import url(superslides.css);
+@import url(bootstrap-select.css);
+@import url(carousel-ticker.css);
+@import url(code_animate.css);
+@import url(bootsnav.css);
+@import url(owl.carousel.min.css);
+@import url(jquery-ui.css);
+@import url(nice-select.css);
+@import url(baguetteBox.min.css);
+{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -27,7 +58,7 @@ a:hover {
   --color3: #f0f0f065;
   --color4: #928f88;
   --color5: #444349;
-  --font: "Roboto Condensed", sans-serif;
+  --font: "Dosis", sans-serif;
   --shado: 0 4px 16px rgba(128, 128, 128, 0.1);
 }
 /* ========Global Style======== */
@@ -38,7 +69,7 @@ nav {
   padding: 10px;
   justify-content: space-around;
   align-items: center;
-  background-color: #878787;
+  background-color: #ffffff;
 }
 nav .nav_brand a {
   color: #b0b435;
@@ -63,7 +94,9 @@ nav .nav_menu ul li {
   text-transform: uppercase;
 }
 nav .nav_menu ul li a {
-  color: var(--color);
+  font-weight: 700;
+  font-size: 16px;
+  color: black;
   font-family: var(--font);
 }
 nav .nav_menu ul li .dropdown-menu {
@@ -228,8 +261,30 @@ nav .nav_menu ul li .dropdown-toggle span {
     margin-top: 58px;
   }
 }
-/* ===========Responsive=========== */
-
+/* ===========nav=========== */
+nav.navbar.bootsnav ul.nav > li > a {
+  position: relative;
+  font-weight: 700;
+  font-size: 16px;
+  color: #000000;
+  text-transform: uppercase;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 30px;
+}
+nav.navbar.bootsnav ul.nav li.active > a {
+  color: #b0b435;
+}
+nav.navbar.bootsnav ul.nav li.active > a:hover {
+  color: #b0b435;
+}
+nav.navbar.bootsnav ul.nav li > a:hover {
+  color: #b0b435;
+}
+nav.navbar.bootsnav ul.nav li.megamenu-fw > a:hover {
+  color: #b0b435;
+}
 /* ===========Home Banner==================== */
 
 /* ========Recent Product========== */
@@ -1281,3 +1336,12 @@ form .form-input button:focus {
   bottom: 2px;
 }
 /* ===========Chat Body========== */
+/* --------------------------------------------- */
+.all-title-box {
+  color: #333333;
+  background-size: cover;
+  text-align: center;
+  background-attachment: fixed;
+  padding: 70px 0px;
+  position: relative;
+}
