@@ -34,8 +34,6 @@
         $page_title='Current Whether';
     }elseif($cur_path=='forgot_password' || $cur_path=='update_password'){
         $page_title='Forgot Password';
-    }elseif($cur_path=='chat'){
-        $page_title='Chat With Community';
     }
 ?>
 <!DOCTYPE html>

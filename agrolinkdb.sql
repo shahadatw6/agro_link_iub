@@ -78,7 +78,7 @@ CREATE TABLE FARMER (
 );
 
 CREATE TABLE VEHICLE_REGISTRATION (
-    Registration_ID INTEGER,
+    Registration_ID VARCHAR(50),
     model_no VARCHAR(50) NOT NULL,
     capacity INTEGER NOT NULL,
     delivery_Officer_emp_ID INTEGER,
@@ -108,4 +108,14 @@ CREATE TABLE TRANSACTION (
     CONSTRAINT fk_transaction_employee FOREIGN KEY (employee_ID) REFERENCES EMPLOYEE(employee_ID),
     CONSTRAINT fk_transaction_order FOREIGN KEY (order_ID) REFERENCES ORDER_TABLE(order_ID),
     CONSTRAINT fk_transaction_farmer FOREIGN KEY (farmer_ID) REFERENCES FARMER(farmer_ID)
+);
+
+CREATE TABLE CART (
+    cart_ID INTEGER AUTO_INCREMENT,
+    product_ID INTEGER NOT NULL,
+    quantity INTEGER NOT NULL,
+    consumer_ID INTEGER,
+    PRIMARY KEY (cart_ID),
+    CONSTRAINT fk_cart_product FOREIGN KEY (product_ID) REFERENCES PRODUCT(product_ID),
+    CONSTRAINT fk_cart_consumer FOREIGN KEY (consumer_ID) REFERENCES CONSUMER(consumer_ID)
 );

@@ -9,10 +9,10 @@
     <div class="nav_menu ml-auto"> 
         <ul class="d-flex">
             <li>
-                <a href="index.html">home</a>
+                <a href="<?php echo WEBSITE_PATH; ?>index.html">home</a>
             </li>
             <li>
-                <a href="about.html">about</a>
+                <a href="<?php echo WEBSITE_PATH; ?>about.html">about</a>
             </li>
             <li>
                 <a href="<?php echo WEBSITE_PATH; ?>shop.php">shop</a>

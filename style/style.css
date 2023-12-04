@@ -70,6 +70,8 @@ nav {
   justify-content: space-around;
   align-items: center;
   background-color: #ffffff;
+  margin: 10 10px; /* Adjust the margin as needed */
+
 }
 nav .nav_brand a {
   color: #b0b435;
@@ -77,6 +79,7 @@ nav .nav_brand a {
   font-family: var(--font);
   font-weight: 700;
 }
+
 nav .responsive_icon {
   position: absolute;
   right: 10px;
