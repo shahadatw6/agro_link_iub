@@ -2,12 +2,9 @@
 <!--NavBar Start -->
 <nav class="d-flex fixed-top">
     <div class="nav_brand">
-        <a href="<?php echo WEBSITE_PATH; ?>index.php">
-            <span>Agro-Link</span>
+        <a href="<?php echo WEBSITE_PATH; ?>index.html">
+        <img src="<?php echo WEBSITE_PATH; ?>images/new data/logo.png" alt="" height="70" width="90" />
         </a>
-    </div>
-    <div class="responsive_icon">
-        <i class="fa fa-bars" aria-hidden="true"></i>
     </div>
     <div class="nav_menu ml-auto"> 
         <ul class="d-flex">
