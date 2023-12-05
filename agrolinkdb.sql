@@ -4,13 +4,14 @@ CREATE TABLE EMPLOYEE (
     emp_contact VARCHAR(20) NOT NULL,
     department VARCHAR(50) NOT NULL,
     email VARCHAR(100) NOT NULL,
+    password VARCHAR(255) NOT NULL,
     CONSTRAINT empPK PRIMARY KEY (employee_ID)
-
 );
 
-INSERT INTO EMPLOYEE(emp_name, emp_contact, department, email) VALUES
-('Shahal', '01877585773', 'admin', 'shahadatw6@gmail.com'),
-('Md. Shamim', '01947585773', 'sales', 'mdshamims@gmail.com');
+INSERT INTO EMPLOYEE(emp_name, emp_contact, department, email, password) VALUES
+('Shahal', '01877585773', 'admin', 'shahadatw6@gmail.com', '123'),
+('Md. Shamim', '01947585773', 'sales', 'mdshamims@gmail.com', '123');
+
 
 CREATE TABLE CONSUMER (
     consumer_ID INTEGER AUTO_INCREMENT,
@@ -68,14 +69,19 @@ CREATE TABLE WAREHOUSE (
 
 
 CREATE TABLE FARMER (
-    farmer_ID INTEGER,
+    farmer_ID INTEGER AUTO_INCREMENT,
     farmer_Name VARCHAR(100) NOT NULL, 
     farmer_contact VARCHAR(20) NOT NULL, 
     farmer_location VARCHAR(100) NOT NULL,
-    warehouse_ID INTEGER,
-    CONSTRAINT farmerPK PRIMARY KEY (farmer_ID),
-    CONSTRAINT fk_farmer_warehouse FOREIGN KEY (warehouse_ID) REFERENCES WAREHOUSE(warehouse_ID)
+    password VARCHAR(255) NOT NULL,
+    CONSTRAINT farmerPK PRIMARY KEY (farmer_ID)
 );
+
+INSERT INTO FARMER (farmer_Name, farmer_contact, farmer_location, password) VALUES
+('Rahim Khan', '01876543210', 'Dhaka', '1234'),
+('Ayesha Begum', '01987654321', 'Sylhet', '1234'),
+('Kamal Ahmed', '01712345678', 'Chittagong', '1234');
+
 
 CREATE TABLE VEHICLE_REGISTRATION (
     Registration_ID VARCHAR(50),

@@ -50,7 +50,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo WEBSITE_NAME; ?>  Vendor Login</title>
+    <title><?php echo WEBSITE_NAME; ?>  Farmer Login</title>
         <!-- Favicon -->
             <link href="https://pics.freeicons.io/uploads/icons/png/8026814321579250998-512.png" rel="icon" type="image/x-icon" />
         <!-- Favicon -->
@@ -104,7 +104,7 @@
                     <div class="form-input d-flex align-items-center flex-wrap">
                         <button type="submit" name="login">Login Now</button><br>
                         <br \>
-                        <p>You are Not Signup,Please <a href="admin/admin_registration">signup Here</a>.</p>
+                        <p>You are Not Signed Up, Please <a href="admin/farmer_registration.php">sign up Here</a>.</p>
                     </div>
                 </form>
             </div>
