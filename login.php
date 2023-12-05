@@ -26,7 +26,7 @@
         $username = mysqli_escape_string($con,$_POST['username']);
         $password = mysqli_escape_string($con,$_POST['password']);
         $password = md5($password);
-        $check = mysqli_query($con,"select * from users where username = ' $username' AND password='$password' AND email_verification='1' AND status='1'");
+        $check = mysqli_query($con,"select * from users where username = '$username' AND password='$password'");
         $res = mysqli_fetch_assoc($check);
         if(mysqli_num_rows($check)){
             $_SESSION['USER_LOGIN'] = 'yes';
