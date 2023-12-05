@@ -33,6 +33,7 @@
         $res = mysqli_fetch_assoc($check);
         if(mysqli_num_rows($check)){
             $_SESSION['FARMER_LOGIN'] = 'yes';
+            $_SESSION['USER'] = 'farmer';
             $_SESSION['FARMER_NAME'] = $res['farmer_Name'];
             $_SESSION['FARMER_ID'] = $res['farmer_Name'];
             header('Location:product');

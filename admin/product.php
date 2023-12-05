@@ -2,7 +2,7 @@
 include('top.php');
 $condition ='';
 $condition1 ='';
-if($_SESSION['ADMIN_ROLE']=='0'){
+if($_SESSION['USER']=='farmer'){
 	$condition=" and product.added_by='".$_SESSION['ADMIN_ID']."'" ;
 	$condition1=" and added_by='".$_SESSION['ADMIN_ID']."'" ;
 }
