@@ -3,14 +3,16 @@ CREATE TABLE EMPLOYEE (
     emp_name VARCHAR(100) NOT NULL,
     emp_contact VARCHAR(20) NOT NULL,
     department VARCHAR(50) NOT NULL,
+    usertype INTEGER NOT NULL,
     email VARCHAR(100) NOT NULL,
+    username VARCHAR(15) NOT NULL,
     password VARCHAR(255) NOT NULL,
     CONSTRAINT empPK PRIMARY KEY (employee_ID)
 );
 
-INSERT INTO EMPLOYEE(emp_name, emp_contact, department, email, password) VALUES
-('Shahal', '01877585773', 'admin', 'shahadatw6@gmail.com', '123'),
-('Md. Shamim', '01947585773', 'sales', 'mdshamims@gmail.com', '123');
+INSERT INTO EMPLOYEE(emp_name, emp_contact, department,usertype, email, username,password) VALUES
+('Shahal', '01877585773', 'admin', '0','shahadatw6@gmail.com','shahal', '123'),
+('Tasdir', '01947585773', 'sales','4', 'mdshamims@gmail.com','tasdir', '123');
 
 
 CREATE TABLE CONSUMER (
@@ -20,12 +22,14 @@ CREATE TABLE CONSUMER (
     road VARCHAR(100),
     district VARCHAR(50),
     house_no VARCHAR(20),
+    username VARCHAR(15) NOT NULL,
+    password VARCHAR(255) NOT NULL,
     CONSTRAINT consPK PRIMARY KEY (consumer_ID)
 );
 
-INSERT INTO CONSUMER(consumer_name, consumer_contact, road, district, house_no) VALUES
-('Shahal', '01877585773', 'Banani', 'Dhaka', 'H-208'),
-('Md. Tasdir', '01947585773', 'Uttara', 'Dhaka', 'H-208');
+INSERT INTO CONSUMER(consumer_name, consumer_contact, road, district, house_no , username,password) VALUES
+('Shahal', '01877585773', 'Banani', 'Dhaka', 'H-208','shahal', '123'),
+('Md. Tasdir', '01947585773', 'Uttara', 'Dhaka', 'H-208','tasdir', '123');
 
 CREATE TABLE PRODUCT (
     product_ID INTEGER AUTO_INCREMENT,
@@ -72,15 +76,16 @@ CREATE TABLE FARMER (
     farmer_ID INTEGER AUTO_INCREMENT,
     farmer_Name VARCHAR(100) NOT NULL, 
     farmer_contact VARCHAR(20) NOT NULL, 
+    username VARCHAR(15) NOT NULL,
     farmer_location VARCHAR(100) NOT NULL,
     password VARCHAR(255) NOT NULL,
     CONSTRAINT farmerPK PRIMARY KEY (farmer_ID)
 );
 
-INSERT INTO FARMER (farmer_Name, farmer_contact, farmer_location, password) VALUES
-('Rahim Khan', '01876543210', 'Dhaka', '1234'),
-('Ayesha Begum', '01987654321', 'Sylhet', '1234'),
-('Kamal Ahmed', '01712345678', 'Chittagong', '1234');
+INSERT INTO FARMER (farmer_Name, farmer_contact, farmer_location,username, password) VALUES
+('Rahim Khan', '01876543210', 'Dhaka','rahim', '1234'),
+('Ayesha Begum', '01987654321', 'Sylhet','ayesha', '1234'),
+('Kamal Ahmed', '01712345678', 'Chittagong','kamal', '1234');
 
 
 CREATE TABLE VEHICLE_REGISTRATION (
@@ -115,6 +120,7 @@ CREATE TABLE TRANSACTION (
     CONSTRAINT fk_transaction_order FOREIGN KEY (order_ID) REFERENCES ORDER_TABLE(order_ID),
     CONSTRAINT fk_transaction_farmer FOREIGN KEY (farmer_ID) REFERENCES FARMER(farmer_ID)
 );
+
 
 CREATE TABLE CART (
     cart_ID INTEGER AUTO_INCREMENT,
