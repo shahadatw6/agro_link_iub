@@ -35,7 +35,7 @@
             $_SESSION['FARMER_LOGIN'] = 'yes';
             $_SESSION['FARMER_NAME'] = $res['farmer_Name'];
             $_SESSION['FARMER_ID'] = $res['farmer_Name'];
-            header('Location:product');
+            redirect('product');
         }else{
             $msg = "<div class='alert' role='alert'>
             Please Enter Correct Username And Password Otherwise <a href='admin_registration'> SIGNUP NOW </a>
