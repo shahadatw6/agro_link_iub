@@ -1,8 +1,8 @@
 <?php include('top.php');
 
-$total_users = mysqli_num_rows(mysqli_query($con,"select * from users where email_verification='1'"));
-$total_farmers = mysqli_num_rows(mysqli_query($con,"select * from admin where email_verification='1' and roll='0'"));
-$total_delivery_boy = mysqli_num_rows(mysqli_query($con,"select * from delivery_boy where status='1'"));
+$total_users = mysqli_num_rows(mysqli_query($con,"select * from consumer"));
+$total_farmers = mysqli_num_rows(mysqli_query($con,"select * from farmer"));
+$total_delivery_boy = mysqli_num_rows(mysqli_query($con,"select * from employee where usertype='5'"));
 ?>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>

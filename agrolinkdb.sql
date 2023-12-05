@@ -46,12 +46,17 @@ CREATE TABLE PRODUCT (
     bestBefore DATE,
     product_Size VARCHAR(20),
     weight DECIMAL(10, 2),
+    imagelink VARCHAR(100) NOT NULL,
+    catagory VARCHAR(50) NOT NULL,
+    unitprice DECIMAL(10, 2),
+    description VARCHAR(200),
     CONSTRAINT product_PK PRIMARY KEY (product_ID)
 );
 
-INSERT INTO PRODUCT(product_name, product_Origin, availability, dateAdded, bestBefore, product_Size, weight) VALUES
-('Rice', 'Bangladesh', 200, '2023-01-15', '2024-01-15', 'Large', 5.0),
-('Mango', 'Bangladesh', 150, '2023-03-01', '2023-08-31', 'Medium', 0.3);
+INSERT INTO PRODUCT (product_name, product_Origin, availability, dateAdded, bestBefore, product_Size, weight, imagelink, catagory, unitprice, description) VALUES 
+('Rice', 'Bangladesh', 200, '2023-01-15', '2024-01-15', 'Large', 5.0, 'images\\new data\\shahal.jpg', 'Grains', 3.99, 'High-quality rice from local farms.'), 
+('Mango', 'Bangladesh', 150, '2023-03-01', '2023-08-31', 'Medium', 0.3, 'images\\new data\\tasdir.jpg', 'Fruits', 1.99, 'Fresh and juicy mangoes harvested in season.');
+
 
 
 CREATE TABLE ORDER_TABLE (
