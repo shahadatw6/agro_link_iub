@@ -33,6 +33,7 @@
         $res = mysqli_fetch_assoc($check);
         if(mysqli_num_rows($check)){
             $_SESSION['ADMIN_LOGIN'] = 'yes';
+            $_SESSION['ADMIN_ROLE'] = '1';
             $_SESSION['ADMIN_NAME'] = $res['emp_name'];
             $_SESSION['ADMIN_ID'] = $res['employee_ID'];
             header('Location:index');
