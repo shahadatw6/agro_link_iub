@@ -29,14 +29,14 @@
         $password = mysqli_escape_string($con,$_POST['password']);
         // $password = md5($password);
         // echo $password;
-        $check = mysqli_query($con,"SELECT * FROM admin WHERE username = ' $username' AND password='$password' AND email_verification='1'");
+        $check = mysqli_query($con,"SELECT * FROM farmer WHERE username = ' $username' AND password='$password'");
         $res = mysqli_fetch_assoc($check);
         if(mysqli_num_rows($check)){
-            $_SESSION['ADMIN_LOGIN'] = 'yes';
-            $_SESSION['ADMIN_NAME'] = $res['name'];
-            $_SESSION['ADMIN_ID'] = $res['id'];
-            $_SESSION['ADMIN_ROLE'] = $res['roll'];
-            header('Location:index');
+            // $_SESSION['ADMIN_LOGIN'] = 'yes';
+            // $_SESSION['ADMIN_NAME'] = $res['name'];
+            // $_SESSION['ADMIN_ID'] = $res['id'];
+            // $_SESSION['ADMIN_ROLE'] = $res['roll'];
+            // header('Location:index');
         }else{
             $msg = "<div class='alert' role='alert'>
             Please Enter Correct Username And Password Otherwise <a href='admin_registration'> SIGNUP NOW </a>

@@ -3,7 +3,7 @@
     define("ADMIN_PANAL","E-Marketplace ~ Vendor Panal");
 
     define("WEBSITE_PATH","http://localhost/agro_link_iub/");
-    define('SERVER_PATH',$_SERVER['DOCUMENT_ROOT'].'/agro_link_iub/');
+    define('SERVER_PATH',$_SERVER['DOCUMENT_ROOT'].'/agrolinkdb/');
 
     define('SERVER_PRODUCT_IMAGE',SERVER_PATH."assets/products/");
     define('SITE_PRODUCT_IMAGE',WEBSITE_PATH."assets/products/");
