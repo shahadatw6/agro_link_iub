@@ -41,7 +41,11 @@ if($_SESSION['ADMIN_ROLE'] == 1){
     <div class="card-body">
         <h1 class="grid_title">Product Master</h1>
         
-        <a href="manage_product" class="add_link">Add Product</a>
+        <a href="manage_product" class="add_link">
+           <button style= "background-color: rgb(175, 207, 99); 
+				border-radius: 5px; border-color: rgb(175, 207, 99);
+				color: white"> Add Product </button>
+        </a>
         <div class="row grid_box">
             <div class="col-12">
                 <div class="table-responsive">

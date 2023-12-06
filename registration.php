@@ -1,38 +1,34 @@
 <?php
     include 'includes/navigation_bar.php';
     include('smtp/PHPMailerAutoload.php');
-    $name = '';
-    $email = '';
+    $consumer_name = '';
     $username = '';
     $password = '';
-    $msg ='';
-    $email_msg='';
+    $consumer_contact ='';
+    $house_no='';
+    $road = '';
+    $district = ' ';
     if(isset($_POST['signup'])){
-        $name = mysqli_escape_string($con,$_POST['name']);
-        $email = mysqli_escape_string($con,$_POST['email']);
+        $consumer_name = mysqli_escape_string($con,$_POST['name']);
         $username = mysqli_escape_string($con,$_POST['username']);
         $password = mysqli_escape_string($con,$_POST['password']);
-        $password = md5($password);
+        $consumer_contact =mysqli_escape_string($con,$_POST['contact']);
+        $house_no=mysqli_escape_string($con,$_POST['houseno']);
+        $road = mysqli_escape_string($con,$_POST['road']);
+        $district = mysqli_escape_string($con, $_POST['district']);
 
-        $check = mysqli_query($con,"SELECT * FROM users WHERE email='$email'");
+        //$password = md5($password);
 
-        if(mysqli_num_rows($check)>0){
-            $msg = "<div class='alert' role='alert'>
-                        You Are Alrady Register Please <a href='login'> LOGIN NOW </a>
-                    </div>";
-        }else{
-            mysqli_query($con,"INSERT INTO users (name,email,username,password,status,email_verification) VALUES(' $name','$email',' $username','$password','1','0')");
-            $id = mysqli_insert_id($con);
-            mysqli_query($con,"INSERT INTO user_profile(user_id) VALUES('$id')");
-            $html=WEBSITE_PATH."verify?id=".$id;
-            $email_msg ='Please Wait...';
-            send_email($email,$html,'Verify Email Id');
+
+        mysqli_query($con,"INSERT INTO consumer (consumer_name,username,password,consumer_contact,house_no,road,district) 
+        VALUES('$consumer_name','$username','$password','$consumer_contact','$house_no','$road','$district')");
+        $id = mysqli_insert_id($con);
+        mysqli_query($con,"INSERT INTO consumer(consumer_ID) VALUES('$id')");
+
             echo "<script>
-                    alert('Thank you for register. Please check your email id, to verify your account');
-                </script>";
-            $email_msg ='';
+            alert('You have successfully registered!');
+          </script>";
         }
-    }
 ?>
 
 <!-- Registration Page -->
@@ -44,7 +40,7 @@
                 <p class="text-center text-danger"><?php $email_msg; ?></p>
             </div>
         </div>
-            <?php echo $msg; ?>
+
         <div class="row signup-form-body">
             <div class="col-xl-6">
                 <!-- <div class="social_register">
@@ -56,7 +52,7 @@
                         <input type="text" name="name" placeholder="Enter Your Full Name" required>
                     </div>
                     <div class="form-input">
-                        <input type="email" name="email" placeholder="Enter Your Email" required>
+                        <input type="text" name="contact" placeholder="Enter Your Contact Number" required>
                     </div>
                     <div class="form-input">
                         <input type="text" name="username" placeholder="Enter Your Username" required>
@@ -64,6 +60,16 @@
                     <div class="form-input">
                         <input type="password" name="password" placeholder="Enter Your Password" required>
                     </div>
+                    <div class="form-input">
+                        <input type="text" name="road" placeholder="Enter Your Road Number" required>
+                    </div>
+                    <div class="form-input">
+                        <input type="text" name="district" placeholder="Enter Your District" required>
+                    </div>
+                    <div class="form-input">
+                        <input type="text" name="house" placeholder="Enter Your House Number" required>
+                    </div>
+
                     <div class="form-input d-flex align-items-center flex-wrap">
                         <button type="submit" name="signup">Signup Now</button>
                         <p>You are Alrady Signup,Please <a href="<?php echo WEBSITE_PATH; ?>login">Login Here</a>.</p>
