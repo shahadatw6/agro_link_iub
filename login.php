@@ -1,23 +1,25 @@
 <?php
     if(isset($_GET['id']) && $_GET['id']>0){
         echo "<script>
-            alert('Congractulation ! Your Email Id sussesfuly Verifed Please Login Now');
+            alert('Congractulation ! Your Email ID has been verified successfully! Please Login Now');
         </script>";
     }
 
     include 'includes/navigation_bar.php';
-    $username = '';
+    $emp_name = '';
+    $emp_contact = '';
+    $department = '';
+    $usertype = '';
+    $email = '';
     $password ='';
-    $msg = '';
-    $type = '';
-    $page='';
+    $username = '';
 
     if(isset($_GET['type']) && $_GET['type']!='' && isset($_GET['page']) && $_GET['page']!=''){
         $type = mysqli_escape_string($con,$_GET['type']);
         $page = mysqli_escape_string($con,$_GET['page']);
         if($type=='msg'){
             $msg = "<script>
-                    alert(`Your Are Not Login Please Login Now For Access $page`);
+                    alert(`Your Are Not Logged In. Please Login For Access $page`);
                 </script>"; 
         }
     }
