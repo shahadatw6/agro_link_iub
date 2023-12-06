@@ -53,7 +53,7 @@ CREATE TABLE PRODUCT (
     CONSTRAINT product_PK PRIMARY KEY (product_ID)
 );
 
-INSERT INTO PRODUCT (product_name, product_Origin, availability, dateAdded, bestBefore, product_Size, weight, imagelink, catagory, unitprice, description) VALUES 
+INSERT INTO PRODUCT (product_name, product_Origin, availability, dateAdded, bestBefore, product_Size, weight, imagelink, category, unitprice, description) VALUES 
 ('Rice', 'Bangladesh', 200, '2023-01-15', '2024-01-15', 'Large', 5.0, 'images\\new data\\shahal.jpg', 'Grains', 3.99, 'High-quality rice from local farms.'), 
 ('Mango', 'Bangladesh', 150, '2023-03-01', '2023-08-31', 'Medium', 0.3, 'images\\new data\\tasdir.jpg', 'Fruits', 1.99, 'Fresh and juicy mangoes harvested in season.');
 

@@ -83,7 +83,7 @@ if($cur_path=='' || $cur_path=='index'){
           
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-              <span class="nav-profile-name">Welcome ! <?php echo $_SESSION['ADMIN_NAME']?></span>
+              <span class="nav-profile-name">Welcome ! <?php echo $_SESSION['NAME']?></span>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
               <div class="dropdown-divider"></div>

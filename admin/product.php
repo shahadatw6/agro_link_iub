@@ -29,13 +29,18 @@ if(isset($_GET['type']) && $_GET['type']!=='' && isset($_GET['id']) && $_GET['id
     }
 }
 
-$sql = "SELECT * FROM product WHERE 1 $condition ORDER BY product_ID DESC";
-$res = mysqli_query($con, $sql);
-
+if($_SESSION['ADMIN_ROLE'] == 1){
+    $sql = "SELECT * FROM product  ORDER BY product_ID DESC";
+    $res = mysqli_query($con, $sql);
+}else if ($_SESSION['ADMIN_ROLE'] == 0){
+    $sql = "SELECT * FROM product WHERE added_by = {$_SESSION['FARMER_ID']}  ORDER BY product_ID DESC";
+    $res = mysqli_query($con, $sql);
+}
 ?>
 <div class="card">
     <div class="card-body">
         <h1 class="grid_title">Product Master</h1>
+        
         <a href="manage_product" class="add_link">Add Product</a>
         <div class="row grid_box">
             <div class="col-12">

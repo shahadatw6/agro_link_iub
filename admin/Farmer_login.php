@@ -30,8 +30,8 @@ if (isset($_POST['login'])) {
     if (mysqli_num_rows($check) > 0) {
         $_SESSION['FARMER_LOGIN'] = 'yes';
         $_SESSION['ADMIN_ROLE'] = '0';
-        $_SESSION['FARMER_NAME'] = $res['farmer_Name'];
-        $_SESSION['FARMER_ID'] = $res['farmer_id'];
+        $_SESSION['NAME'] = $res['farmer_Name'];
+        $_SESSION['FARMER_ID'] = $res['farmer_ID'];
         header('Location: product.php'); 
     } else {
         $msg = "<div class='alert' role='alert'>
