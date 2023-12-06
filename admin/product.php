@@ -30,7 +30,7 @@ if(isset($_GET['type']) && $_GET['type']!=='' && isset($_GET['id']) && $_GET['id
 }
 
 if($_SESSION['ADMIN_ROLE'] == 1){
-    $sql = "SELECT * FROM product  ORDER BY product_ID DESC";
+    $sql = "SELECT * FROM product  ORDER BY product_ID ASC";
     $res = mysqli_query($con, $sql);
 }else if ($_SESSION['ADMIN_ROLE'] == 0){
     $sql = "SELECT * FROM product WHERE added_by = {$_SESSION['FARMER_ID']}  ORDER BY product_ID DESC";
