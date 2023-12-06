@@ -1,7 +1,7 @@
 <?php 
 include('top.php');
 
-$condition = '';
+// $condition = '';
 
 if(isset($_GET['type']) && $_GET['type']!=='' && isset($_GET['id']) && $_GET['id']>0){
     $type = get_safe_value($_GET['type']);
