@@ -8,9 +8,10 @@ $curStr=$_SERVER['REQUEST_URI'];
 $curArr=explode('/',$curStr);
 $cur_path=$curArr[count($curArr)-1];
 
-if(!isset($_SESSION['ADMIN_LOGIN'])){
-	redirect('admin_login');
-}
+// if(!isset($_SESSION['ADMIN_LOGIN'])){
+// 	redirect('admin_login');
+// }
+
 $page_title='';
 if($cur_path=='' || $cur_path=='index'){
 	$page_title='Dashboard';

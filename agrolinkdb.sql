@@ -47,7 +47,7 @@ CREATE TABLE PRODUCT (
     product_Size VARCHAR(20),
     weight DECIMAL(10, 2),
     imagelink VARCHAR(100) NOT NULL,
-    catagory VARCHAR(50) NOT NULL,
+    category VARCHAR(50) NOT NULL,
     unitprice DECIMAL(10, 2),
     description VARCHAR(200),
     CONSTRAINT product_PK PRIMARY KEY (product_ID)
@@ -142,3 +142,12 @@ CREATE TABLE CART (
     CONSTRAINT fk_cart_product FOREIGN KEY (product_ID) REFERENCES PRODUCT(product_ID),
     CONSTRAINT fk_cart_consumer FOREIGN KEY (consumer_ID) REFERENCES CONSUMER(consumer_ID)
 );
+
+
+ALTER TABLE PRODUCT
+ADD COLUMN added_by INT,
+ADD CONSTRAINT fk_added_by FOREIGN KEY (added_by) REFERENCES farmer(farmer_id);
+
+
+ALTER TABLE PRODUCT
+ADD COLUMN status TINYINT DEFAULT 1 NOT NULL;
