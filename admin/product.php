@@ -30,7 +30,7 @@ if(isset($_GET['type']) && $_GET['type']!=='' && isset($_GET['id']) && $_GET['id
 }
 
 if($_SESSION['ADMIN_ROLE'] == 1){
-    $sql = "SELECT * FROM product  ORDER BY product_ID DESC";
+    $sql = "SELECT * FROM product  ORDER BY product_ID ASC";
     $res = mysqli_query($con, $sql);
 }else if ($_SESSION['ADMIN_ROLE'] == 0){
     $sql = "SELECT * FROM product WHERE added_by = {$_SESSION['FARMER_ID']}  ORDER BY product_ID DESC";
@@ -41,7 +41,11 @@ if($_SESSION['ADMIN_ROLE'] == 1){
     <div class="card-body">
         <h1 class="grid_title">Product Master</h1>
         
-        <a href="manage_product" class="add_link">Add Product</a>
+        <a href="manage_product" class="add_link">
+           <button style= "background-color: rgb(175, 207, 99); 
+				border-radius: 5px; border-color: rgb(175, 207, 99);
+				color: white"> Add Product </button>
+        </a>
         <div class="row grid_box">
             <div class="col-12">
                 <div class="table-responsive">

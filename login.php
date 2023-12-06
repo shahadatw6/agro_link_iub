@@ -1,80 +1,91 @@
 <?php
-    if(isset($_GET['id']) && $_GET['id']>0){
-        echo "<script>
-            alert('Congractulation ! Your Email ID has been verified successfully! Please Login Now');
-        </script>";
-    }
-
     include 'includes/navigation_bar.php';
-    $emp_name = '';
-    $emp_contact = '';
-    $department = '';
-    $usertype = '';
+    include('smtp/PHPMailerAutoload.php');
+    $name = '';
     $email = '';
-    $password ='';
     $username = '';
-
-    if(isset($_GET['type']) && $_GET['type']!='' && isset($_GET['page']) && $_GET['page']!=''){
-        $type = mysqli_escape_string($con,$_GET['type']);
-        $page = mysqli_escape_string($con,$_GET['page']);
-        if($type=='msg'){
-            $msg = "<script>
-                    alert(`Your Are Not Logged In. Please Login For Access $page`);
-                </script>"; 
-        }
-    }
-
-    if(isset($_POST['login'])){
+    $password = '';
+    $msg ='';
+    $email_msg='';
+    if(isset($_POST['signup'])){
+        $name = mysqli_escape_string($con,$_POST['name']);
+        $email = mysqli_escape_string($con,$_POST['email']);
         $username = mysqli_escape_string($con,$_POST['username']);
         $password = mysqli_escape_string($con,$_POST['password']);
         $password = md5($password);
-        $check = mysqli_query($con,"select * from users where username = '$username' AND password='$password'");
-        $res = mysqli_fetch_assoc($check);
-        if(mysqli_num_rows($check)){
-            $_SESSION['USER_LOGIN'] = 'yes';
-            $_SESSION['USER_NAME'] = $res['name'];
-            $_SESSION['USER_ID'] = $res['id'];
-            header('Location:index');
-        }else{
+
+        $check = mysqli_query($con,"SELECT * FROM users WHERE email='$email'");
+
+        if(mysqli_num_rows($check)>0){
             $msg = "<div class='alert' role='alert'>
-            Please Enter Correct Username And Password Or Verify Your Email Id</a>
-            </div>";
+                        You Are Alrady Register Please <a href='login'> LOGIN NOW </a>
+                    </div>";
+        }else{
+            mysqli_query($con,"INSERT INTO users (name,email,username,password,status,email_verification) VALUES(' $name','$email',' $username','$password','1','0')");
+            $id = mysqli_insert_id($con);
+            mysqli_query($con,"INSERT INTO user_profile(user_id) VALUES('$id')");
+            $html=WEBSITE_PATH."verify?id=".$id;
+            $email_msg ='Please Wait...';
+            send_email($email,$html,'Verify Email Id');
+            echo "<script>
+                    alert('Thank you for register. Please check your email id, to verify your account');
+                </script>";
+            $email_msg ='';
+            echo "<script>
+            alert('You have successfully registered!');
+          </script>";
         }
     }
 ?>
 
-<!-- Login Page -->
-<div class="container login_page">
-    <div class="row heading">
-        <div class="col-xl-12">
-            <h2>Login Now</h2>
-            <p>LOGIN YOUR SELF</p>
+<!-- Registration Page -->
+    <div class="container registration">
+        <div class="row heading">
+            <div class="col-xl-12">
+                <h2>Signup Now</h2>
+                <p>REGISTER YOUR SELF</p>
+                <p class="text-center text-danger"><?php $email_msg; ?></p>
+            </div>
+        </div>
+            <?php echo $msg; ?>
+        <div class="row signup-form-body">
+            <div class="col-xl-6">
+                <!-- <div class="social_register">
+                    <button class="btn"><span><i class="fa fa-google" aria-hidden="true"></i></span> &nbsp; SignUp With Google </button>
+                    <p>OR</p>
+                </div> -->
+                <form method="post" action="">
+                    <div class="form-input">
+                        <input type="text" name="name" placeholder="Enter Your Full Name" required>
+                    </div>
+                    <div class="form-input">
+                        <input type="text" name="contact" placeholder="Enter Your Contact Number" required>
+                    </div>
+                    <div class="form-input">
+                        <input type="text" name="username" placeholder="Enter Your Username" required>
+                    </div>
+                    <div class="form-input">
+                        <input type="password" name="password" placeholder="Enter Your Password" required>
+                    </div>
+                    <div class="form-input">
+                        <input type="text" name="road" placeholder="Enter Your Road Number" required>
+                    </div>
+                    <div class="form-input">
+                        <input type="text" name="district" placeholder="Enter Your District" required>
+                    </div>
+                    <div class="form-input">
+                        <input type="text" name="house" placeholder="Enter Your House Number" required>
+                    </div>
+
+                    <div class="form-input d-flex align-items-center flex-wrap">
+                        <button type="submit" name="signup">Signup Now</button>
+                        <p>You are Alrady Signup,Please <a href="<?php echo WEBSITE_PATH; ?>login">Login Here</a>.</p>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-    <?php echo $msg; ?>
-    <div class="row signup-form-body">
-        <div class="col-xl-6">
-            <!-- <div class="social_register">
-                <button class="btn"><span><i class="fa fa-google" aria-hidden="true"></i></span> &nbsp; Login With Google </button>
-                <p>OR</p>
-            </div> -->
-            <form method="post" action="">
-                <div class="form-input">
-                    <input type="text" name="username" placeholder="Enter Your Username" required>
-                </div>
-                <div class="form-input">
-                    <input type="password" name="password" placeholder="Enter Your Password" required>
-                </div>
-                <p class="m-0">Forgot Password?<a href="<?php echo WEBSITE_PATH; ?>forgot_password"> Here</a>.</p>
-                <div class="form-input d-flex align-items-center flex-wrap">
-                    <button type="submit" name="login">Login Now</button>
-                    <p>You are Not Signup,Please <a href="<?php echo WEBSITE_PATH; ?>registration">signup Here</a>.</p>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-<!--X- Login Page -X-->
+<!--X- Registration Page -X-->
 
 <?php
     include 'includes/footer.php';
