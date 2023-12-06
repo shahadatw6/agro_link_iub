@@ -38,7 +38,7 @@ if (isset($_GET['c_id']) && $_GET['c_id'] > 0) {
 }
 
 ?>
-
+<!--Shop Page-->
 <div class="container shopping">
 <div class="row heading">
             <div class="col-xl-12">
