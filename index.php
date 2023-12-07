@@ -57,7 +57,7 @@
           >
             <i class="fa fa-bars"></i>
           </button>
-          <a class="navbar-brand" href="index.html"
+          <a class="navbar-brand" href="index.php"
             ><img
               src="images/new data/logo.png"
               class="logo"

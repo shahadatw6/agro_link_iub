@@ -200,3 +200,7 @@ VALUES ('Anika', '9876543210', 'WAREHOUSE', 2, 'anika@example.com', 'anika', '11
 
 INSERT INTO WAREHOUSE(warehouse_Capacity, freezer, silos, warehouse_location, warehouse_emp_ID)
 VALUES (5000, 2, 5, 'Dhaka Warehouse', 1);
+
+INSERT INTO EMPLOYEE(emp_name, emp_contact, department,usertype, email, username,password) VALUES
+('aman', '01877585773', 'delivery', '5','aman@gmail.com','shamanahal', '123'),
+('zaman', '01947585773', 'delivery','5', 'zamans@gmail.com','zaman', '123');
