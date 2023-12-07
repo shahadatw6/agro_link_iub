@@ -17,7 +17,7 @@ if(isset($_GET['type']) && $_GET['type']!=='' && isset($_GET['id']) && $_GET['id
 
 }
 
-$sql="select * from employee WHERE usertype=5 Order by employee_ID desc";
+$sql="select * from employee WHERE usertype = 5 Order by employee_ID desc";
 $res=mysqli_query($con, $sql);
 
 ?>

@@ -152,13 +152,6 @@ if($cur_path=='' || $cur_path=='index'){
               <span class="menu-title">Delivery Boy</span>
             </a>
           </li>
-		  
-		      <li class="nav-item">
-            <a class="nav-link" href="contact_us">
-              <i class="fa fa-commenting-o" aria-hidden="true"></i>&nbsp;
-              <span class="menu-title">Contact Us</span>
-            </a>
-          </li>
 
           <!-- <li class="nav-item">
             <a class="nav-link" href="about_us">
