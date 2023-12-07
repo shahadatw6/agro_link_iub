@@ -15,18 +15,12 @@ $cur_path=$curArr[count($curArr)-1];
 $page_title='';
 if($cur_path=='' || $cur_path=='index'){
 	$page_title='Dashboard';
-}elseif($cur_path=='category' || $cur_path=='manage_category'){
-	$page_title='Manage Category';
-}elseif($cur_path=='sub_category' || $cur_path=='manage_sub_category'){
-	$page_title='Manage Sub Category';
 }elseif($cur_path=='user' || $cur_path=='manage_user'){
 	$page_title='Manage User';
 }elseif($cur_path=='vendores' || $cur_path=='manage_vendores'){
 	$page_title='Manage Vendore';
 }elseif($cur_path=='delivery_boy' || $cur_path=='manage_delivery_boy'){
 	$page_title='Manage Delivery Boy';
-}elseif($cur_path=='coupon_code' || $cur_path=='manage_coupon_code'){
-	$page_title='Manage Coupon Code';
 }elseif($cur_path=='product' || $cur_path=='manage_product'){
 	$page_title='Manage Product';
 }elseif($cur_path=='banner' || $cur_path=='manage_banner'){
@@ -140,18 +134,6 @@ if($cur_path=='' || $cur_path=='index'){
           <?php } ?>
           <?php if($_SESSION['ADMIN_ROLE']!='0'){ ?>
           
-          <li class="nav-item">
-            <a class="nav-link" href="category">
-              <i class="fa fa-copyright" aria-hidden="true"></i>&nbsp;
-              <span class="menu-title">Category</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="sub_category">
-              <i class="fa fa-copyright" aria-hidden="true"></i>&nbsp;
-              <span class="menu-title">Sub Category</span>
-            </a>
-          </li>
 		      <li class="nav-item">
             <a class="nav-link" href="user">
               <i class="fa fa-users" aria-hidden="true"></i>&nbsp;
@@ -168,28 +150,6 @@ if($cur_path=='' || $cur_path=='index'){
             <a class="nav-link" href="delivery_boy">
               <i class="fa fa-motorcycle" aria-hidden="true"></i>
               <span class="menu-title">Delivery Boy</span>
-            </a>
-          </li>
-		      <li class="nav-item">
-            <a class="nav-link" href="coupon_code">
-              <i class="fa fa-btc" aria-hidden="true"></i>&nbsp;&nbsp;
-              <span class="menu-title">Promo Code</span>
-            </a>
-          </li>
-		  
-		     
-		  
-		      <!-- <li class="nav-item">
-            <a class="nav-link" href="banner">
-              <i class="fa fa-sliders" aria-hidden="true"></i>&nbsp;&nbsp;
-              <span class="menu-title">Banner</span>
-            </a>
-          </li> -->
-		  
-		      <li class="nav-item">
-            <a class="nav-link" href="contact_us">
-              <i class="fa fa-commenting-o" aria-hidden="true"></i>&nbsp;
-              <span class="menu-title">Contact Us</span>
             </a>
           </li>
 

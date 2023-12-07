@@ -24,7 +24,7 @@
             header("Location:cart");
         }
     }
-    $sql = mysqli_query($con,"SELECT * FROM user_cart WHERE user_id='$user_id' ORDER BY product_id DESC");
+    $sql = mysqli_query($con,"SELECT * FROM cart WHERE user_id='$user_id' ORDER BY product_id DESC");
 ?>
 
 <!-- Cart Page -->

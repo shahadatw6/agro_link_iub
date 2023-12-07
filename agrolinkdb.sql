@@ -154,3 +154,56 @@ ADD CONSTRAINT fk_added_by FOREIGN KEY (added_by) REFERENCES farmer(farmer_id);
 
 ALTER TABLE PRODUCT
 ADD COLUMN status TINYINT DEFAULT 1 NOT NULL;
+
+ALTER TABLE product
+DROP COLUMN product_Size;
+
+ALTER TABLE FARMER
+ADD COLUMN status TINYINT DEFAULT 1 NOT NULL; 
+
+ALTER TABLE ORDER_TABLE
+ADD COLUMN order_Date TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
+
+ALTER TABLE ORDER_TABLE
+MODIFY COLUMN product_ID INTEGER NOT NULL;
+
+ALTER TABLE consumer
+ADD COLUMN status TINYINT DEFAULT 1 NOT NULL; 
+
+ALTER TABLE order_table
+ADD COLUMN order_Status TEXT NOT NULL; 
+
+ALTER TABLE EMPLOYEE
+ADD COLUMN status TINYINT DEFAULT 1 NOT NULL; 
+
+
+CREATE TABLE DELIVERY (
+    delivery_ID INTEGER AUTO_INCREMENT,
+    delivery_date DATE NOT NULL,
+    Tregistration_no VARCHAR(50),
+    delivery_empID INTEGER,
+    warehouse_ID INTEGER,
+    consumer_ID INTEGER,
+    CONSTRAINT deliveryPK PRIMARY KEY (delivery_ID),
+    CONSTRAINT fk_delivery_empID FOREIGN KEY (delivery_empID) REFERENCES EMPLOYEE(employee_ID),
+    CONSTRAINT fk_delivery_warehouse FOREIGN KEY (warehouse_ID) REFERENCES WAREHOUSE(warehouse_ID),
+    CONSTRAINT fk_delivery_consumer FOREIGN KEY (consumer_ID) REFERENCES CONSUMER(consumer_ID)
+);
+
+
+ALTER TABLE ORDER_TABLE
+ADD COLUMN delivery_ID INTEGER,
+ADD CONSTRAINT fk_order_delivery FOREIGN KEY (delivery_ID) REFERENCES DELIVERY(delivery_ID);
+
+INSERT INTO EMPLOYEE(emp_name, emp_contact, department, usertype, email, username, password)
+VALUES ('Tausia', '0123456789', 'delivery', 4, 'delivery@example.com', 'delivery_user', 'delivery_password');
+
+INSERT INTO EMPLOYEE(emp_name, emp_contact, department, usertype, email, username, password)
+VALUES ('Anika', '9876543210', 'WAREHOUSE', 2, 'anika@example.com', 'anika', '11234');
+
+INSERT INTO WAREHOUSE(warehouse_Capacity, freezer, silos, warehouse_location, warehouse_emp_ID)
+VALUES (5000, 2, 5, 'Dhaka Warehouse', 1);
+
+INSERT INTO EMPLOYEE(emp_name, emp_contact, department,usertype, email, username,password) VALUES
+('aman', '01877585773', 'delivery', '5','aman@gmail.com','shamanahal', '123'),
+('zaman', '01947585773', 'delivery','5', 'zamans@gmail.com','zaman', '123');

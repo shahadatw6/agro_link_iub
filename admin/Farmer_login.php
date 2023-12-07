@@ -10,15 +10,6 @@ $msg = '';
 $type = '';
 $page = '';
 
-if (isset($_GET['type']) && $_GET['type'] != '' && isset($_GET['page']) && $_GET['page'] != '') {
-    $type = mysqli_escape_string($con, $_GET['type']);
-    $page = mysqli_escape_string($con, $_GET['page']);
-    if ($type == 'msg') {
-        $msg = "<script>
-                    alert(`Your Are Not Login Please Login Now For Access $page Page`);
-                </script>";
-    }
-}
 
 if (isset($_POST['login'])) {
     $username = mysqli_escape_string($con, $_POST['username']);
@@ -39,6 +30,7 @@ if (isset($_POST['login'])) {
             </div>";
     }
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,7 +38,8 @@ if (isset($_POST['login'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo WEBSITE_NAME; ?>farmer Login</title>
+    <title><?php echo WEBSITE_NAME; ?>-farmer Login</title>
+
     <!-- Favicon -->
     <link href="https://pics.freeicons.io/uploads/icons/png/8026814321579250998-512.png" rel="icon" type="image/x-icon"/>
     <!-- Google Fonts -->
