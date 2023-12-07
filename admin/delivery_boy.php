@@ -40,7 +40,7 @@ $res = mysqli_query($con, $sql);
 								<th>employee ID</th>
 								<th>Name</th>
 								<th>Contact</th>
-								<th>Email</th>
+
 							</tr>
 						</thead>
 						<tbody>
@@ -53,7 +53,7 @@ $res = mysqli_query($con, $sql);
 										<td><?php echo $row['employee_ID'] ?></td>
 										<td><?php echo $row['emp_name'] ?></td>
 										<td><?php echo $row['emp_contact'] ?></td>
-										<td><?php echo $row['email'] ?></td>
+
 
 										<td>
 											<a href="manage_delivery_boy?id=<?php echo $row['employee_ID'] ?>"><label class="badge badge-success hand_cursor">Edit</label></a>&nbsp;
