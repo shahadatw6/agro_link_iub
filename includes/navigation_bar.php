@@ -2,14 +2,14 @@
 <!--NavBar Start -->
 <nav class="d-flex fixed-top">
     <div class="nav_brand">
-        <a href="<?php echo WEBSITE_PATH; ?>index.html">
+        <a href="<?php echo WEBSITE_PATH; ?>index.php">
         <img src="<?php echo WEBSITE_PATH; ?>images/new data/logo.png" alt="" height="70" width="90" />
         </a>
     </div>
     <div class="nav_menu ml-auto"> 
         <ul class="d-flex">
             <li>
-                <a href="<?php echo WEBSITE_PATH; ?>index.html">home</a>
+                <a href="<?php echo WEBSITE_PATH; ?>index.php">home</a>
             </li>
             <li>
                 <a href="<?php echo WEBSITE_PATH; ?>about.html">about</a>

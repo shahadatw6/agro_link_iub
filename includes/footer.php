@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-xl-3">
                 <div class="footer_logo">
-                    <a href="<?php echo WEBSITE_PATH; ?>index.html"></i>
+                    <a href="<?php echo WEBSITE_PATH; ?>index.php"></i>
                     <img src="<?php echo WEBSITE_PATH; ?>images/new data/logo.png" alt="" height="70" width="90" />
 
                 </div>
