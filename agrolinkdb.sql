@@ -15,10 +15,13 @@ CREATE TABLE EMPLOYEE (
     password VARCHAR(255) NOT NULL,
     CONSTRAINT empPK PRIMARY KEY (employee_ID)
 );
+ALTER TABLE EMPLOYEE
+ADD COLUMN status TINYINT DEFAULT 1 NOT NULL;
 
 INSERT INTO EMPLOYEE(emp_name, emp_contact, department,usertype, email, username,password) VALUES
 ('Shahal', '01877585773', 'admin', '0','shahadatw6@gmail.com','shahal', '123'),
-('Tasdir', '01947585773', 'sales','4', 'mdshamims@gmail.com','tasdir', '123');
+('Tasdir', '01947585773', 'sales','4', 'mdshamims@gmail.com','tasdir', '123'),
+('Faiyaz', '01832585773', 'delivery boy','5', 'faiyaz@gmail.com','faiyaz', '1234');
 
 
 CREATE TABLE CONSUMER (
