@@ -17,7 +17,7 @@ if(isset($_GET['type']) && $_GET['type']!=='' && isset($_GET['id']) && $_GET['id
 
 }
 
-$sql="select * from employee WHERE usertype = 5 Order by employee_ID desc";
+$sql="select * from employee WHERE usertype = 5";
 $res=mysqli_query($con, $sql);
 
 ?>
@@ -39,6 +39,7 @@ $res=mysqli_query($con, $sql);
                             <th>#</th>
                             <th>Name</th>
                             <th>Mobile</th>
+							<th>Added On</th>
                             <th>Actions</th>
                         </tr>
                       </thead>
@@ -51,6 +52,12 @@ $res=mysqli_query($con, $sql);
                             <td><?php echo $i?></td>
                             <td><?php echo $row['emp_name']?></td>
 							<td><?php echo $row['emp_contact']?></td>
+							<td>
+							<!-- <?php 
+							$dateStr=strtotime($row['added_on']);
+							echo date('d-m-Y',$dateStr);
+							?> -->
+							</td>
 							<td>
 								<a href="manage_delivery_boy?id=<?php echo $row['employee_ID']?>"><label class="badge badge-success hand_cursor">Edit</label></a>&nbsp;
 								<?php
@@ -65,6 +72,7 @@ $res=mysqli_query($con, $sql);
 								}
 								
 								?>
+								<a href="?id=<?php echo $user['employee_ID']?>&type=delete"><label class="badge badge-danger delete_red hand_cursor">Delete</label></a>
 							</td>
                            
                         </tr>
@@ -84,3 +92,5 @@ $res=mysqli_query($con, $sql);
           </div>
         
 <?php include('footer.php');?>
+
+delivery boy

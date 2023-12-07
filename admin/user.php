@@ -25,7 +25,7 @@ $res = mysqli_query($con, $sql);
 
 <div class="card">
     <div class="card-body">
-        <h1 class="grid_title">User Master</h1>
+        <h1 class="grid_title">Consumer</h1>
         <div class="row grid_box">
             <div class="col-12">
                 <div class="table-responsive">
@@ -57,6 +57,7 @@ $res = mysqli_query($con, $sql);
                                         <td><?php echo $row['username']?></td>
                                         <td><?php echo $row['password']?></td>
                                         <td>
+                                        <a href="manage_product?id=<?php echo $user['consumer_ID']?>"><label class="badge badge-success hand_cursor">Edit</label></a>&nbsp;
                                             <?php if ($row['status'] == 1): ?>
                                                 <a href="?consumer_ID=<?php echo $row['consumer_ID']?>&type=deactive">
                                                     <label class="badge badge-danger hand_cursor">Active</label>
@@ -65,7 +66,9 @@ $res = mysqli_query($con, $sql);
                                                 <a href="?consumer_ID=<?php echo $row['consumer_ID']?>&type=active">
                                                     <label class="badge badge-info hand_cursor">Deactive</label>
                                                 </a>
+                                                
                                             <?php endif; ?>
+                                            <a href="?id=<?php echo $user['consumer_ID']?>&type=delete"><label class="badge badge-danger delete_red hand_cursor">Delete</label></a>
                                         </td>
                                     </tr>
                             <?php 
