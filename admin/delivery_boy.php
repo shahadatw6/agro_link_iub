@@ -40,6 +40,8 @@ $res = mysqli_query($con, $sql);
 								<th>employee ID</th>
 								<th>Name</th>
 								<th>Contact</th>
+								<th>Email</th>
+								<th>Actions</th>
 
 							</tr>
 						</thead>
@@ -53,6 +55,7 @@ $res = mysqli_query($con, $sql);
 										<td><?php echo $row['employee_ID'] ?></td>
 										<td><?php echo $row['emp_name'] ?></td>
 										<td><?php echo $row['emp_contact'] ?></td>
+										<td><?php echo $row['email'] ?></td>
 
 
 										<td>
