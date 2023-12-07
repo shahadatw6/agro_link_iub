@@ -6,20 +6,23 @@ $condition = '';
 if (isset($_GET['type']) && $_GET['type'] !== '' && isset($_GET['id']) && $_GET['id'] > 0) {
 	$type = get_safe_value($_GET['type']);
 	$id = get_safe_value($_GET['id']);
-	if ($type == 'active' || $type == 'deactive') {
+
+	// Delete block should be outside the active/deactive block
+	if ($type == 'delete') {
+		$res = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM employee WHERE employee_ID='$id'"));
+		mysqli_query($con, "DELETE FROM employee WHERE employee_ID='$id'");
+		redirect('employee');
+	} else {
+		// Active/Deactive block
 		$status = 1;
 		if ($type == 'deactive') {
 			$status = 0;
 		}
 		mysqli_query($con, "update employee set status='$status' where employee_id='$id'");
 		redirect('employee');
-		if ($type == 'delete') {
-			$res = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM employee WHERE employee_ID='$id'"));
-			mysqli_query($con, "DELETE FROM employee WHERE employee_ID='$id'");
-			redirect('employee');
-		}
 	}
 }
+
 
 $sql = "select * from employee WHERE usertype=5 Order by employee_ID desc";
 $res = mysqli_query($con, $sql);
