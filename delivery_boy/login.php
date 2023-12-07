@@ -7,8 +7,6 @@ include '../includes/function.inc.php';
 $username = '';
 $password = '';
 
-
-
 if (isset($_POST['login'])) {
     $username = mysqli_escape_string($con, $_POST['username']);
     $password = mysqli_escape_string($con, $_POST['password']);
@@ -21,15 +19,13 @@ if (isset($_POST['login'])) {
         $_SESSION['ADMIN_ROLE'] = '5';
         $_SESSION['NAME'] = $res['emp_name'];
         $_SESSION['DELIVERYBOY_ID'] = $res['employee_ID'];
-        redirect("index.php");
-         
+        header('Location: index.php');
     } else {
         $msg = "<div class='alert' role='alert'>
             Please Enter Correct Username And Password Otherwise <a href='admin_registration'> SIGNUP NOW </a>
             </div>";
     }
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -62,9 +58,7 @@ if (isset($_POST['login'])) {
                 <div class="mt-3">
                   <input type="submit" class="btn btn-block btn-success btn-lg font-weight-medium auth-form-btn" value="SIGN IN" name="submit"/>
                 </div>
-                
               </form>
-			        
             </div>
           </div>
         </div>
