@@ -2,7 +2,7 @@
 
 const states= document.getElementById('select_state');
 const value='';
-	var url = 'https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070?api-key=579b464db66ec23bdd0000017704f08e67e4414747189afb9ef2d662&format=json&offset=0&limit=4000';
+	var url = '?';
 
 	fetch(url)
 	.then(response => {

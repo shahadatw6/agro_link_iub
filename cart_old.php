@@ -11,17 +11,16 @@
     $cart_total =0;
     $cart_roow='';
     $user_id = $_SESSION['USER_ID'];
-
-    if(isset($_GET['qty']) && $_GET['qty'] >0 && $_GET['update'] && $_GET['update'] >0){
-        $qty = mysqli_escape_string($con,$_GET['qty']);
+    if(isset($_GET['quantity']) && $_GET['quantity'] >0 && $_GET['update'] && $_GET['update'] >0){
+        $qty = mysqli_escape_string($con,$_GET['quantity']);
         $cart_user_id = mysqli_escape_string($con,$_GET['update']);
-        mysqli_query($con,"update CART set quantity='$qty' where cart_ID='$cart_user_id'");
+        mysqli_query($con,"update CART set quantity='$quantity' where consumer_ID='$cart_user_id'");
     }
-    if(isset($_GET['id']) && $_GET['id']>0 && $_GET['type']) {
-        $id = mysqli_escape_string($con,$_GET['id']);
+    if(isset($_GET['cart_ID']) && $_GET['cart_ID']>0 && $_GET['type']) {
+        $cart_ID = mysqli_escape_string($con,$_GET['cart_ID']);
         $type = mysqli_escape_string($con,$_GET['type']);
         if($type=='delete'){
-            mysqli_query($con,"DELETE FROM CART WHERE cart_ID ='$id'");
+            mysqli_query($con,"DELETE FROM CART WHERE id ='$cart_ID'");
             header("Location:cart.php");
         }
     }
@@ -49,10 +48,10 @@
                     <div class="cart_iteam_desc">
                         <h3><?php echo $product_iteam['product_name']; ?></h3>
                         <?php
-                            $attei_sql = mysqli_query($con,"SELECT * FROM PRODUCT WHERE product_ID ='$product_id'");
+                            $attei_sql = mysqli_query($con,"SELECT * FROM product_detailes WHERE product_id	='$product_id'");
                             $row_price=mysqli_fetch_assoc($attei_sql);
                          ?>
-                            <h4> &#8377; <?php echo $row_price['unitprice'];?> <span> for <?php echo $row_price['weight'];?></span></h4>
+                            <h4> &#8377; <?php echo $product_iteam['unitprice'];?> <span> for <?php echo $product_iteam['weight'];?></span></h4>
                         <ul class="d-flex">
                             <li>
                                 <i class="fa fa-star" aria-hidden="true"></i>
@@ -77,13 +76,13 @@
                     </select>
                     <?php 
                         $qunty = $row['quantity'];
-                        $price = $row_price['unitprice'];
+                        $price = $product_iteam['unitprice'];
                         $total = $qunty * $price;
                         $cart_total = $cart_total + $total             
                     ?>
                     <h3>&#8377; <?php echo $total ?></h3>
-                   <?php $cart_row_id =$row['cart_ID']  ?>
-                    <a href="?id=<?php echo $row['cart_ID'] ?>&type=delete"><i class="fa fa-times" aria-hidden="true"></i></a>
+                   <?php $cart_row_id =$row['id']  ?>
+                    <a href="?id=<?php echo $row['cart_id'] ?>&type=delete"><i class="fa fa-times" aria-hidden="true"></i></a>
                 </div>
                 <?php } 
             }else{
