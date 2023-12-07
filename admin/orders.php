@@ -56,13 +56,12 @@ $res=mysqli_query($con,$sql);
                             
 						?>
 						<tr>
-                            <td>
+               <td>
 								<div class="div_order_id">
 									<a href="order_detailes?id=<?php echo $user['order_ID']?>"><?php echo $user['order_ID']?></a>
 								</div>
 							</td>
-                            <td>
-							
+              <td>							
 								<p><?php echo $user['order_Date']?></p>
 						    </td>	
 							<td>	<p><?php echo $user['shipping_Mode']?></p>

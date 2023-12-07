@@ -1,24 +1,35 @@
 <?php
 session_start();
-include('../includes/database.inc.php');
-include('../includes/function.inc.php');
-$msg="";
-if(isset($_POST['submit'])){
-	$mobile=get_safe_value($_POST['mobile']);
-	$password=get_safe_value($_POST['password']);
-	
-	$sql="select * from delivery_boy where mobile='$mobile' and password='$password'";
-	$res=mysqli_query($con,$sql);
-	if(mysqli_num_rows($res)>0){
-		$row=mysqli_fetch_assoc($res);
-		$_SESSION['DELIVERY_BOY_USER_LOGIN']='yes';
-		$_SESSION['DELIVERY_BOY_USER']=$row['name'];
-		$_SESSION['DELIVERY_BOY_ID']=$row['id'];
-		redirect('index');
-	}else{
-		$msg="Please enter valid login details";
-	}
+require_once '../includes/database.inc.php';
+include_once("../includes/constant.inc.php");
+include '../includes/function.inc.php';
+
+$username = '';
+$password = '';
+
+
+
+if (isset($_POST['login'])) {
+    $username = mysqli_escape_string($con, $_POST['username']);
+    $password = mysqli_escape_string($con, $_POST['password']);
+
+    $check = mysqli_query($con, "SELECT * FROM employee WHERE username = '$username' AND password='$password'");
+    $res = mysqli_fetch_assoc($check);
+
+    if (mysqli_num_rows($check) > 0) {
+        $_SESSION['DELIVERYBOY_LOGIN'] = 'yes';
+        $_SESSION['ADMIN_ROLE'] = '5';
+        $_SESSION['NAME'] = $res['emp_name'];
+        $_SESSION['DELIVERYBOY_ID'] = $res['employee_ID'];
+        redirect("index.php");
+         
+    } else {
+        $msg = "<div class='alert' role='alert'>
+            Please Enter Correct Username And Password Otherwise <a href='admin_registration'> SIGNUP NOW </a>
+            </div>";
+    }
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,7 +54,7 @@ if(isset($_POST['submit'])){
               <h6 class="font-weight-light">Sign in to continue.</h6>
               <form class="pt-3" method="post">
                 <div class="form-group">
-                  <input type="textbox" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Mobile" name="mobile" required>
+                  <input type="textbox" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="username" name="username" required>
                 </div>
                 <div class="form-group">
                   <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password"  name="password" required>
@@ -53,7 +64,7 @@ if(isset($_POST['submit'])){
                 </div>
                 
               </form>
-			        <div class="login_msg"><?php echo $msg?></div>
+			        
             </div>
           </div>
         </div>
