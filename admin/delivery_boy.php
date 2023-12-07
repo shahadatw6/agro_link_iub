@@ -72,6 +72,7 @@ $res=mysqli_query($con, $sql);
 								}
 								
 								?>
+								<a href="?id=<?php echo $user['employee_ID']?>&type=delete"><label class="badge badge-danger delete_red hand_cursor">Delete</label></a>
 							</td>
                            
                         </tr>

@@ -62,6 +62,7 @@ $sql=mysqli_query($con,"select * from farmer");
 							<td><?php echo $row['username']?></td>
 							<td><?php echo $row['farmer_location']?></td>
 							<td>
+							    <a href="manage_product?id=<?php echo $user['farmer_ID']?>"><label class="badge badge-success hand_cursor">Edit</label></a>&nbsp;
 								<?php
 								if($row['status']==1){
 								?>
@@ -74,6 +75,7 @@ $sql=mysqli_query($con,"select * from farmer");
 								}
 								
 								?>
+								<a href="?id=<?php echo $user['farmer_ID']?>&type=delete"><label class="badge badge-danger delete_red hand_cursor">Delete</label></a>
 							</td>
 							
                            
