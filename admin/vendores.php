@@ -34,7 +34,7 @@ $sql=mysqli_query($con,"select * from farmer");
 ?>
   <div class="card">
             <div class="card-body">
-              <h1 class="grid_title">Vendor Master</h1>
+              <h1 class="grid_title">Farmer</h1>
 			  <div class="row grid_box">
 				
                 <div class="col-12">
