@@ -72,7 +72,7 @@
             <link rel="stylesheet" href="<?php echo WEBSITE_PATH; ?>style/whether.css">
         <!--X-External Style Sheet  -X-->
 </head>
-<body onload="myloader()">
+<!-- <body onload="myloader()"> -->
      <!--Added the loading div-->
-        <div id="loading"></div>
+        <!-- <div id="loading"></div> -->
      <!-- End loading -->

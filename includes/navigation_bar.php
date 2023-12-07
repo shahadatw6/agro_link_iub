@@ -38,18 +38,6 @@
             <?php }?>
         </ul>
     </div>
-    <?php if(isset($_SESSION['USER_LOGIN'])){?>
-        <?php
-            $user_id=$_SESSION['USER_ID'];
-            $total_cart = mysqli_num_rows(mysqli_query($con,"SELECT * FROM user_cart WHERE user_id='$user_id'"));
-        ?>
-        <div class="cart_nav">
-            <a href="<?php echo WEBSITE_PATH; ?>cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <span><?php echo $total_cart; ?></span></a>
-        </div>
-    <?php }else{ ?>
-        <div class="cart_nav">
-            <a href="<?php echo WEBSITE_PATH; ?>cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <span>0</span></a>
-        </div>
-    <?php } ?>  
+ 
 </nav>
 <!--X-NavBar End -X-->
