@@ -1,71 +1,73 @@
 <?php
     include 'includes/navigation_bar.php';
     if(!isset($_SESSION['USER_LOGIN'])){
-        header('Location:login?type=msg&page=Cart');
+        header('Location: login?type=msg&page=Cart');
     }
-    $user_id= $_SESSION['USER_ID'];
-    $sql =mysqli_query($con,"SELECT * FROM users WHERE id = '$user_id'");
-    $res = mysqli_fetch_assoc($sql);
+    $user_id = $_SESSION['USER_ID'];
 
-    $profile = mysqli_fetch_assoc(mysqli_query($con,"SELECT * FROM user_profile WHERE user_id='$user_id'"));
+    // Fetching consumer details
+    $consumer_sql = mysqli_query($con, "SELECT * FROM consumer_table WHERE consumer_ID = '$user_id'");
+    $is_consumer = mysqli_num_rows($consumer_sql) > 0;
+    $user_info = mysqli_fetch_assoc($consumer_sql);
+
+    // Fetching farmer details
+    $farmer_sql = mysqli_query($con, "SELECT * FROM farmer_table WHERE farmer_ID = '$user_id'");
+    $is_farmer = mysqli_num_rows($farmer_sql) > 0;
+    $farmer_info = mysqli_fetch_assoc($farmer_sql);
 ?>
 
 <!-- profile body -->
-
-    <div class="container profile">
-        <div class="row heading">
-            <div class="col-xl-12">
-                <h2>Your Profile</h2>
-                <p>Update Now</p>
-            </div>
-            <div class="update_profile">
-                    <a href="<?php echo WEBSITE_PATH; ?>manage_user_profile?type=update"><button class="btn">Update Now</> &nbsp; <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
-                    <a href="<?php echo WEBSITE_PATH; ?>manage_user_profile?type=add"><button class="btn">Insert Now &nbsp; <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
-            </div>
+<div class="container profile">
+    <div class="row heading">
+        <div class="col-xl-12">
+            <h2>Your Profile</h2>
+            <p>Update Now</p>
         </div>
-        <!-- Personal Info -->
-            <div class="row personal_info">
-                <div class="col-xl-6 personal_info_row">
-                    <p>Personal Information</p>
-                    <div class="prosonal_filed">
-                        <ul>
-                            <li>Name : <span><?php echo $res['name'];?></span></li>
-                            <li>Email Id : <span><?php echo $res['email'];?></span></li>
-                            <li>Mobile No : <span><?php echo $profile['mobile_no']?></span></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        <!--X- Personal Info -X-->
-        <!-- Address Info -->
-            <div class="row personal_info">
-                <div class="col-xl-6 personal_info_row">
-                    <p>Address</p>
-                    <div class="prosonal_filed">
-                        <ul>
-                            <li>House / Building No : <span><?php echo $profile['house_no']?></span></li>
-                            <li>City / Vilage : <span><?php echo $profile['city']?></span></li>
-                            <li>Pin Code : <span><?php echo $profile['pin_code']?></span></li>
-                            <li>Type Of Address : <span><?php echo $profile['address_type']?></span></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        <!--X- Address Info -X-->
-        <!-- Account Info -->
-            <div class="row personal_info">
-                <div class="col-xl-6 personal_info_row">
-                    <p>Account Details</p>
-                    <div class="prosonal_filed">
-                        <ul>
-                            <li>User Name : <span><?php echo $res['username'];?></span></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        <!--X- Account Info -X-->
+        <div class="update_profile">
+            <?php if($is_consumer): ?>
+                <a href="<?php echo WEBSITE_PATH; ?>manage_consumer_profile?type=update"><button class="btn">Update Consumer Profile</button></a>
+            <?php elseif($is_farmer): ?>
+                <a href="<?php echo WEBSITE_PATH; ?>manage_farmer_profile?type=update"><button class="btn">Update Farmer Profile</button></a>
+            <?php else: ?>
+                <!-- Display options for new user registration -->
+                <a href="<?php echo WEBSITE_PATH; ?>register?type=consumer"><button class="btn">Register as Consumer</button></a>
+                <a href="<?php echo WEBSITE_PATH; ?>register?type=farmer"><button class="btn">Register as Farmer</button></a>
+            <?php endif; ?>
+        </div>
     </div>
 
+    <?php if($is_consumer): ?>
+        <!-- Display Consumer Info -->
+        <div class="row personal_info">
+            <div class="col-xl-6 personal_info_row">
+                <p>Consumer Information</p>
+                <div class="prosonal_filed">
+                    <ul>
+                        <li>ID: <span><?php echo $user_info['consumer_ID'];?></span></li>
+                        <li>Name: <span><?php echo $user_info['consumer_name'];?></span></li>
+                        <li>Contact: <span><?php echo $user_info['consumer_contact'];?></span></li>
+                        <!-- Add other consumer fields here -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    <?php elseif($is_farmer): ?>
+        <!-- Display Farmer Info -->
+        <div class="row personal_info">
+            <div class="col-xl-6 personal_info_row">
+                <p>Farmer Information</p>
+                <div class="prosonal_filed">
+                    <ul>
+                        <li>ID: <span><?php echo $farmer_info['farmer_ID'];?></span></li>
+                        <li>Name: <span><?php echo $farmer_info['farmer_Name'];?></span></li>
+                        <li>Contact: <span><?php echo $farmer_info['farmer_contact'];?></span></li>
+                        <!-- Add other farmer fields here -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    <?php endif; ?>
+</div>
 <!--X- profile body -X-->
 
 <?php
