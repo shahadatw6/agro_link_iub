@@ -31,7 +31,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="<?php echo WEBSITE_PATH; ?>profile.php">Profile</a>
-                        <a class="dropdown-item" href="<?php echo WEBSITE_PATH; ?>orders.php">Orders</a>
+                        <a class="dropdown-item" href="<?php echo WEBSITE_PATH; ?>cart.php">Cart</a>
                         <a class="dropdown-item" href="<?php echo WEBSITE_PATH; ?>logout.php">LogOut</a>
                     </div>
                 </li>

@@ -2,5 +2,5 @@
 session_start();
 include('../includes/function.inc.php');
 unset( $_SESSION['ADMIN_LOGIN']);
-redirect('../index.html');
+redirect('../index.php');
 ?>
