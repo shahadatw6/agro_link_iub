@@ -11,21 +11,20 @@
     $cart_total =0;
     $cart_roow='';
     $user_id = $_SESSION['USER_ID'];
-
     if(isset($_GET['qty']) && $_GET['qty'] >0 && $_GET['update'] && $_GET['update'] >0){
         $qty = mysqli_escape_string($con,$_GET['qty']);
         $cart_user_id = mysqli_escape_string($con,$_GET['update']);
-        mysqli_query($con,"update CART set quantity='$qty' where cart_ID='$cart_user_id'");
+        mysqli_query($con,"update user_cart set qty='$qty' where id='$cart_user_id'");
     }
     if(isset($_GET['id']) && $_GET['id']>0 && $_GET['type']) {
         $id = mysqli_escape_string($con,$_GET['id']);
         $type = mysqli_escape_string($con,$_GET['type']);
         if($type=='delete'){
-            mysqli_query($con,"DELETE FROM CART WHERE cart_ID ='$id'");
-            header("Location:cart.php");
+            mysqli_query($con,"DELETE FROM user_cart WHERE id ='$id'");
+            header("Location:cart");
         }
     }
-    $sql = mysqli_query($con,"SELECT * FROM CART WHERE consumer_ID='$user_id' ORDER BY product_ID DESC");
+    $sql = mysqli_query($con,"SELECT * FROM cart WHERE user_id='$user_id' ORDER BY product_id DESC");
 ?>
 
 <!-- Cart Page -->
@@ -41,18 +40,18 @@
                 if(mysqli_num_rows($sql)>0){
                     $cart_roow = mysqli_num_rows($sql);
                     while($row=mysqli_fetch_array($sql)){
-                        $product_id=$row['product_ID'];
-                        $product_iteam = mysqli_fetch_assoc(mysqli_query($con,"SELECT * FROM PRODUCT WHERE product_ID='$product_id'"));
+                        $product_id=$row['product_id'];
+                        $product_iteam = mysqli_fetch_assoc(mysqli_query($con,"SELECT * FROM product WHERE id='$product_id'"));
             ?>
                 <div class="d-flex  shopping_cart_iteam">
-                    <img src="<?php echo $product_iteam['imagelink']; ?>" alt="">
+                    <img src="<?php echo SITE_PRODUCT_IMAGE.$product_iteam['image']; ?>" alt="">
                     <div class="cart_iteam_desc">
-                        <h3><?php echo $product_iteam['product_name']; ?></h3>
+                        <h3><?php echo $product_iteam['product']; ?></h3>
                         <?php
-                            $attei_sql = mysqli_query($con,"SELECT * FROM PRODUCT WHERE product_ID ='$product_id'");
+                            $attei_sql = mysqli_query($con,"SELECT * FROM product_detailes WHERE product_id	='$product_id'");
                             $row_price=mysqli_fetch_assoc($attei_sql);
                          ?>
-                            <h4>  <?php echo $row_price['unitprice'];?> <span> for <?php echo $row_price['weight'];?></span></h4>
+                            <h4> &#8377; <?php echo $row_price['price'];?> <span> for <?php echo $row_price['attribute'];?></span></h4>
                         <ul class="d-flex">
                             <li>
                                 <i class="fa fa-star" aria-hidden="true"></i>
@@ -69,21 +68,21 @@
                         </ul>
                     </div>
                     <select name="qty" value="" id="qty"  onchange="updatecart()">
-                            <option value="<?php echo $row['quantity'] ?>"><?php echo $row['quantity'] ?></option>
+                            <option value="<?php echo $row['qty'] ?>"><?php echo $row['qty'] ?></option>
                         <?php $i=1;
                             while($i<6){?>
                             <option value="<?php echo $i ?>"><?php echo $i ?></option>
                         <?php $i++; } ?>
                     </select>
                     <?php 
-                        $qunty = $row['quantity'];
-                        $price = $row_price['unitprice'];
+                        $qunty = $row['qty'];
+                        $price = $row_price['price'];
                         $total = $qunty * $price;
                         $cart_total = $cart_total + $total             
                     ?>
-                    <h3>&#2547; <?php echo $total ?></h3>
-                   <?php $cart_row_id =$row['cart_ID']  ?>
-                    <a href="?id=<?php echo $row['cart_ID'] ?>&type=delete"><i class="fa fa-times" aria-hidden="true"></i></a>
+                    <h3>&#8377; <?php echo $total ?></h3>
+                   <?php $cart_row_id =$row['id']  ?>
+                    <a href="?id=<?php echo $row['id'] ?>&type=delete"><i class="fa fa-times" aria-hidden="true"></i></a>
                 </div>
                 <?php } 
             }else{
@@ -91,10 +90,10 @@
             } ?>
         </div>
         <div class="row shopping_cart_total">
-             <h3>Total : <span>&#2547; <?php echo $cart_total?></span></h3>
+             <h3>Total : <span>&#8377; <?php echo $cart_total?></span></h3>
         </div>
         <div class="row cart_checkout">
-            <a href="<?php echo WEBSITE_PATH; ?>shop.php"><button class="btn">Continue Shopping</button></a>
+            <a href="<?php echo WEBSITE_PATH; ?>shop"><button class="btn">Continue Shopping</button></a>
             <a href="<?php echo WEBSITE_PATH; ?>checkout?cart_total=<?php echo $cart_roow; ?>"><button class="btn">Checkout Now</button></a>
         </div>
     </div>

@@ -57,7 +57,7 @@
           >
             <i class="fa fa-bars"></i>
           </button>
-          <a class="navbar-brand" href="index.html"
+          <a class="navbar-brand" href="index.php"
             ><img
               src="images/new data/logo.png"
               class="logo"
@@ -76,7 +76,7 @@
             data-out="fadeOutUp"
           >
             <li class="nav-item active">
-              <a class="nav-link" href="index.html">Home</a>
+              <a class="nav-link" href="index.php">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="about.html">About Us</a>
@@ -113,7 +113,7 @@
                   }
                 </style>
                 <p>
-                  <a class="btn hvr-hover" href="admin\admin_login.php"
+                  <a class="btn hvr-hover" href="admin\farmer_login.php"
                     >Farmer<br />
                     -Start selling</a
                   >
@@ -145,7 +145,7 @@
                   }
                 </style>
                 <p>
-                  <a class="btn hvr-hover" href="admin\admin_login.php"
+                  <a class="btn hvr-hover" href="admin\farmer_login.php"
                     >Farmer<br />
                     -Start selling</a
                   >
@@ -177,7 +177,7 @@
                   }
                 </style>
                 <p>
-                  <a class="btn hvr-hover" href="admin\admin_login.php"
+                  <a class="btn hvr-hover" href="admin\farmer_login.php"
                     >Farmer<br />
                     -Start selling</a
                   >

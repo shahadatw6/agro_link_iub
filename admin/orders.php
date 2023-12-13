@@ -4,23 +4,32 @@ include('top.php');
 if(isset($_GET['type']) && $_GET['type']!='' && isset($_GET['id']) && $_GET['id'] >0){
 	$id=get_safe_value($_GET['id']);
 	$type=get_safe_value($_GET['type']);
-	if($type == 'success'){
-		mysqli_query($con,"UPDATE order_master SET payment_status='1'  WHERE id='$id'");
-		redirect('orders');
-	}else{
-		mysqli_query($con,"UPDATE order_master SET payment_status='0'  WHERE id='$id'");
-		redirect('orders');
-	}
+
+    if($type=='active' || $type=='deactive'){
+        $status = 1;
+        if($type=='deactive'){
+            $status = 0;
+        }
+        mysqli_query($con, "update order set status='$status' where order_ID='$id'");
+        redirect('order_table');
+    }	
+    if($type == 'delete'){
+        $res = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM order_table WHERE order_ID='$id'"));
+        mysqli_query($con, "DELETE FROM order_table WHERE order_ID='$id'");
+        
+        redirect('orders');
+    }
+
 }
 
 
-$sql="SELECT * FROM order_master order by id desc";
+$sql="SELECT * FROM order_table order by order_ID desc";
 $res=mysqli_query($con,$sql);
 
 ?>
   <div class="card">
             <div class="card-body">
-              <h1 class="grid_title">Order Master</h1>
+              <h1 class="grid_title">Order</h1>
 			  <div class="row grid_box">
 				
                 <div class="col-12">
@@ -28,53 +37,53 @@ $res=mysqli_query($con,$sql);
                     <table id="order-listing" class="table">
                       <thead>
                         <tr>
-                            <th width="5%">Order Id</th>
-                            <th width="20%">Name/Email/Mobile</th>
-							<th width="20%">Address/Zipcode</th>
-							<th width="5%">Price</th>
-							<th width="10%">Payment Status</th>
-							<th width="10%">Order Status</th>
-                            <th width="15%">Added On</th>
+                            <th width="5%">order_ID</th>                    
+							<th width="20%">order_Date</th>
+							<th width="5%">shipping_Mode</th>
+							<th width="10%">consumer_ID</th>
+							<th width="10%">product_ID</th>
+                            <th width="15%">order_Status</th>
+							<th width="15%">Actions</th>
                         </tr>
                       </thead>
                       <tbody>
                         <?php if(mysqli_num_rows($res)>0){
 						$i=1;
 						while($row=mysqli_fetch_assoc($res)){
-                            $user_id=$row['user_id'];
-                            $user = mysqli_fetch_assoc(mysqli_query($con,"SELECT * FROM users WHERE id = '$user_id'"));
-                            $user_profile = mysqli_fetch_assoc(mysqli_query($con,"SELECT * FROM user_profile WHERE user_id='$user_id'"));
+
+                            $user_id=$row['order_ID'];
+                            $user = mysqli_fetch_assoc(mysqli_query($con,"SELECT * FROM order_table WHERE order_ID = '$user_id'"));
+                            
 						?>
 						<tr>
-                            <td>
+               <td>
 								<div class="div_order_id">
-									<a href="order_detailes?id=<?php echo $row['id']?>"><?php echo $row['id']?></a>
+									<a href="order_detailes?id=<?php echo $user['order_ID']?>"><?php echo $user['order_ID']?></a>
 								</div>
 							</td>
-                            <td>
-								<p><?php echo $user['name']?></p>
-								<p><?php echo $user['email']?></p>
-								<p><?php echo $user_profile['mobile_no']?></p>
-							<td>
-								<p><?php echo $user_profile['house_no']?> <?php echo $user_profile['city']?> <?php echo $user_profile['address_type']?></p>
-								<p><?php echo $user_profile['pin_code']?></p>
-							</td>
-							<td><?php echo $row['total_price']?></td>
-							<td>
-								<?php 
-                                    if( $row['payment_status']=='0'){ ?>
-                                       <a href='?id=<?php echo $row['id'] ?>&type=success'><label class='badge badge-primary hand_cursor'>Panding</label></a>
-                                   <?php }else{ ?>
-									<a href='?id=<?php echo $row['id'] ?>&type=panding'><label class='badge badge-success hand_cursor'>Success</label></a>
-                                   <?php } ?>
-							</td>
-							<td><?php echo $row['status']?></td>
-							<td>
-							<?php 
-							$dateStr=strtotime($row['added_on']);
-							echo date('d-m-Y h:s',$dateStr);
-							?>
-							</td>
+              <td>							
+								<p><?php echo $user['order_Date']?></p>
+						    </td>	
+							<td>	<p><?php echo $user['shipping_Mode']?></p>
+						</td>
+								<td> <?php echo $user['consumer_ID']?> </td>
+								<td> <?php echo $user['product_ID']?></td>
+								<td><p><?php echo $user['order_Status']?></p></td>
+								<td>
+                                        <a href="manage_product?id=<?php echo $user['product_ID']?>"><label class="badge badge-success hand_cursor">Edit</label></a>&nbsp;
+                                        <?php
+                                        if($user['order_Status']==1){
+                                        ?>
+                                        <a href="?id=<?php echo $user['product_ID']?>&type=deactive"><label class="badge badge-danger hand_cursor">Active</label></a>
+                                        <?php
+                                        }else{
+                                        ?>
+                                        <a href="?id=<?php echo $user['product_ID']?>&type=active"><label class="badge badge-info hand_cursor">Deactive</label></a>
+                                        <?php
+                                        }
+                                        ?>
+                                        <a href="?id=<?php echo $user['product_ID']?>&type=delete"><label class="badge badge-danger delete_red hand_cursor">Delete</label></a>
+                                    </td>
 							
                         </tr>
                         <?php 

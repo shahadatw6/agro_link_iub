@@ -1,30 +1,40 @@
 <?php 
 include('top.php');
+
+
 if($_SESSION['ADMIN_ROLE']=='0'){
 	redirect('product');
 }
 
-if(isset($_GET['type']) && $_GET['type']!=='' && isset($_GET['id']) && $_GET['id']>0){
+if(isset($_GET['type']) && $_GET['type']!=='' && isset($_GET['farmer_ID']) && $_GET['farmer_ID']>0){
 	$type=get_safe_value($_GET['type']);
-	$id=get_safe_value($_GET['id']);
+	$id=get_safe_value($_GET['farmer_ID']);
 	if($type=='active' || $type=='deactive'){
 		$status=1;
 		if($type=='deactive'){
 			$status=0;
 		}
-		mysqli_query($con,"update admin set status='$status' where id='$id'");
+		mysqli_query($con,"update farmer set status='$status' where id='$id'");
 		redirect('vendores');
 	}
 
 }
 
-$sql=mysqli_query($con,"select * from admin where roll='0' order by id desc");
+
+
+
+
+
+
+
+$sql=mysqli_query($con,"select * from farmer");
+
 
 
 ?>
   <div class="card">
             <div class="card-body">
-              <h1 class="grid_title">Vendores Master</h1>
+              <h1 class="grid_title">Farmer</h1>
 			  <div class="row grid_box">
 				
                 <div class="col-12">
@@ -34,9 +44,9 @@ $sql=mysqli_query($con,"select * from admin where roll='0' order by id desc");
                         <tr>
                             <th>#</th>
                             <th>Name</th>
-                            <th>Email</th>
-							<th>User Nmae</th>
-                            <th>Added On</th>
+                            <th>Contact</th>
+							<th>Username</th>
+                            <th>Location</th>
 							<th>Actions</th>
                         </tr>
                       </thead>
@@ -47,29 +57,27 @@ $sql=mysqli_query($con,"select * from admin where roll='0' order by id desc");
 						?>
 						<tr>
                             <td><?php echo $i?></td>
-                            <td><?php echo $row['name']?></td>
-							<td><?php echo $row['email']?></td>
+                            <td><?php echo $row['farmer_Name']?></td>
+							<td><?php echo $row['farmer_contact']?></td>
 							<td><?php echo $row['username']?></td>
+							<td><?php echo $row['farmer_location']?></td>
 							<td>
-							<?php 
-							$dateStr=strtotime($row['register_on']);
-							echo date('d-m-Y',$dateStr);
-							?>
-							</td>
-							<td>
+							    <a href="manage_product?id=<?php echo $user['farmer_ID']?>"><label class="badge badge-success hand_cursor">Edit</label></a>&nbsp;
 								<?php
 								if($row['status']==1){
 								?>
-								<a href="?id=<?php echo $row['id']?>&type=deactive"><label class="badge badge-danger hand_cursor">Active</label></a>
+								<a href="?id=<?php echo $row['farmer_ID']?>&type=deactive"><label class="badge badge-danger hand_cursor">Active</label></a>
 								<?php
 								}else{
 								?>
-								<a href="?id=<?php echo $row['id']?>&type=active"><label class="badge badge-info hand_cursor">Deactive</label></a>
+								<a href="?id=<?php echo $row['farmer_ID']?>&type=active"><label class="badge badge-info hand_cursor">Deactive</label></a>
 								<?php
 								}
 								
 								?>
+								<a href="?id=<?php echo $user['farmer_ID']?>&type=delete"><label class="badge badge-danger delete_red hand_cursor">Delete</label></a>
 							</td>
+							
                            
                         </tr>
                         <?php 
@@ -81,10 +89,10 @@ $sql=mysqli_query($con,"select * from admin where roll='0' order by id desc");
 						<?php } ?>
                       </tbody>
                     </table>
-                  </div>
-				</div>
-              </div>
+                </div>
             </div>
-          </div>
-        
+        </div>
+    </div>
+</div>
+
 <?php include('footer.php');?>

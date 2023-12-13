@@ -3,23 +3,25 @@
         <div class="row">
             <div class="col-xl-3">
                 <div class="footer_logo">
-                    <a href="#"></i> <span>Agro-link</span></a>
+                    <a href="<?php echo WEBSITE_PATH; ?>index.php"></i>
+                    <img src="<?php echo WEBSITE_PATH; ?>images/new data/logo.png" alt="" height="70" width="90" />
+
                 </div>
             </div>
             <div class="col-xl-3">
                 <h3>Get To Know Us</h3>
                 <ul class="d-flex">
                     <li>
-                        <a href="#">Home</a>
+                        <a href="<?php echo WEBSITE_PATH; ?>index.html">Home</a>
                     </li>
                     <li>
-                        <a href="#">about</a>
+                        <a href="<?php echo WEBSITE_PATH; ?>about.html">about</a>
                     </li>
                     <li>
-                        <a href="#">shop</a>
+                        <a href="<?php echo WEBSITE_PATH; ?>shop.php">shop</a>
                     </li>
                     <li>
-                        <a href="#">contact</a>
+                        <a href="">contact</a>
                     </li>
                 </ul>
             </div>
@@ -38,19 +40,10 @@
                 <h3>Let Us Help You</h3>
                 <ul class="d-flex footer_help">
                     <li>
-                        <a href="<?php echo WEBSITE_PATH; ?>whether">Current Whether Information.</a>
-                    </li>
-                    <li>
                         <a href="<?php echo WEBSITE_PATH; ?>prices">Current Market Prices.</a>
                     </li>
                     <li>
                         <a href="<?php echo WEBSITE_PATH; ?>chat">Any problem Selling With Us.</a>
-                    </li>
-                    <li>
-                        <a href="#">Information About Platform.</a>
-                    </li>
-                    <li>
-                        <a href="#">Live Review.</a>
                     </li>
                 </ul>
             </div>

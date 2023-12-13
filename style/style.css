@@ -70,6 +70,8 @@ nav {
   justify-content: space-around;
   align-items: center;
   background-color: #ffffff;
+  margin: 10 10px; /* Adjust the margin as needed */
+
 }
 nav .nav_brand a {
   color: #b0b435;
@@ -77,6 +79,7 @@ nav .nav_brand a {
   font-family: var(--font);
   font-weight: 700;
 }
+
 nav .responsive_icon {
   position: absolute;
   right: 10px;
@@ -96,14 +99,14 @@ nav .nav_menu ul li {
 nav .nav_menu ul li a {
   font-weight: 700;
   font-size: 16px;
-  color: black;
+  color: rgb(157, 157, 157);
   font-family: var(--font);
 }
 nav .nav_menu ul li .dropdown-menu {
-  background: var(--background);
+  background: rgb(255, 255, 255);
 }
 nav .nav_menu ul li .dropdown-item:hover {
-  background-color: var(--color3);
+  background-color: white;
   color: var(--color);
 }
 nav .cart_nav a {
@@ -162,7 +165,7 @@ nav .nav_menu ul li .dropdown-toggle span {
 /* ===========Footer=========== */
 .footer_bg {
   margin-top: 50px;
-  background-color: var(--background);
+  background-color: black;
   padding: 40px 40px 10px 40px;
 }
 .footer_bg .footer_logo {

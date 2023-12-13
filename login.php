@@ -1,9 +1,4 @@
 <?php
-    if(isset($_GET['id']) && $_GET['id']>0){
-        echo "<script>
-            alert('Congractulation ! Your Email Id sussesfuly Verifed Please Login Now');
-        </script>";
-    }
 
     include 'includes/navigation_bar.php';
     $username = '';
@@ -25,17 +20,17 @@
     if(isset($_POST['login'])){
         $username = mysqli_escape_string($con,$_POST['username']);
         $password = mysqli_escape_string($con,$_POST['password']);
-        $password = md5($password);
-        $check = mysqli_query($con,"select * from users where username = ' $username' AND password='$password' AND email_verification='1' AND status='1'");
+
+        $check = mysqli_query($con,"select * from consumer where username = '$username' AND password='$password'");
         $res = mysqli_fetch_assoc($check);
         if(mysqli_num_rows($check)){
             $_SESSION['USER_LOGIN'] = 'yes';
-            $_SESSION['USER_NAME'] = $res['name'];
-            $_SESSION['USER_ID'] = $res['id'];
-            header('Location:index');
+            $_SESSION['USER_NAME'] = $res['consumer_name'];
+            $_SESSION['USER_ID'] = $res['consumer_ID'];
+            header('Location:shop.php');
         }else{
             $msg = "<div class='alert' role='alert'>
-            Please Enter Correct Username And Password Or Verify Your Email Id</a>
+            Please Enter Correct Username And Password</a>
             </div>";
         }
     }

@@ -29,13 +29,13 @@
         $password = mysqli_escape_string($con,$_POST['password']);
         // $password = md5($password);
         // echo $password;
-        $check = mysqli_query($con,"SELECT * FROM admin WHERE username = ' $username' AND password='$password' AND email_verification='1'");
+        $check = mysqli_query($con,"SELECT * FROM employee WHERE emp_name = '$username' AND password='$password' AND usertype = 0 ");
         $res = mysqli_fetch_assoc($check);
         if(mysqli_num_rows($check)){
             $_SESSION['ADMIN_LOGIN'] = 'yes';
-            $_SESSION['ADMIN_NAME'] = $res['name'];
-            $_SESSION['ADMIN_ID'] = $res['id'];
-            $_SESSION['ADMIN_ROLE'] = $res['roll'];
+            $_SESSION['ADMIN_ROLE'] = '1';
+            $_SESSION['NAME'] = $res['emp_name'];
+            $_SESSION['ADMIN_ID'] = $res['employee_ID'];
             header('Location:index');
         }else{
             $msg = "<div class='alert' role='alert'>
@@ -50,7 +50,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo WEBSITE_NAME; ?>  Vendor Login</title>
+    <title><?php echo WEBSITE_NAME; ?>admin Login</title>
         <!-- Favicon -->
             <link href="https://pics.freeicons.io/uploads/icons/png/8026814321579250998-512.png" rel="icon" type="image/x-icon" />
         <!-- Favicon -->
@@ -83,7 +83,7 @@
     <div class="container login_page">
         <div class="row heading">
             <div class="col-xl-12">
-                <h2>Login Now As Farmer </h2>
+                <h2>Login Now As Admin </h2>
             </div>
         </div>
         <?php echo $msg; ?>
@@ -104,7 +104,7 @@
                     <div class="form-input d-flex align-items-center flex-wrap">
                         <button type="submit" name="login">Login Now</button><br>
                         <br \>
-                        <p>You are Not Signup,Please <a href="admin/admin_registration">signup Here</a>.</p>
+                        <p>You are Not Signed Up, Please <a href="admin/farmer_registration.php">sign up Here</a>.</p>
                     </div>
                 </form>
             </div>

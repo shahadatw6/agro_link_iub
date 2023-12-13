@@ -32,13 +32,14 @@
         }
     }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo WEBSITE_NAME; ?> Vendor SignUp </title>
+    <title><?php echo WEBSITE_NAME; ?> farmer SignUp </title>
         <!-- Favicon -->
             <link href="https://pics.freeicons.io/uploads/icons/png/8026814321579250998-512.png" rel="icon" type="image/x-icon" />
         <!-- Favicon -->
@@ -130,7 +131,7 @@
         <div class="container registration">
             <div class="row heading">
                 <div class="col-xl-12">
-                    <h2>Signup Now As Vendor</h2>
+                    <h2>Signup Now As Farmer</h2>
                     <p>REGISTER YOUR SELF</p>
                 </div>
             </div>
@@ -156,7 +157,7 @@
                         </div>
                         <div class="form-input d-flex align-items-center flex-wrap">
                             <button type="submit" name="signup">Signup Now</button>
-                            <p>You are Alrady Signup,Please <a href="<?php echo WEBSITE_PATH; ?>admin/admin_login">Login Here</a>.</p>
+                            <p>You are Alrady Signup,Please <a href="<?php echo WEBSITE_PATH; ?>admin/Farmer_login">Login Here</a>.</p>
                         </div>
                     </form>
                 </div>
@@ -203,7 +204,7 @@
                     <h3>Make Mony With Us</h3>
                     <ul class="d-flex footer_help">
                         <li>
-                            <a href="<?php echo WEBSITE_PATH; ?>admin/admin_registration"><span> <i class="fa fa-shopping-bag" aria-hidden="true"></i></span> Sell Your Product</a>
+                            <a href="<?php echo WEBSITE_PATH; ?>admin/Farmer_registration"><span> <i class="fa fa-shopping-bag" aria-hidden="true"></i></span> Sell Your Product</a>
                         </li>
                         <li>
                             <a href="<?php echo WEBSITE_PATH; ?>delivery_boy/login"><span>  <i class="fa fa-motorcycle" aria-hidden="true"></i></span> Delivery Boy Login</a>
@@ -231,13 +232,7 @@
                     </ul>
                 </div>
             </div>
-            <!-- Developer Contact -->
-                <div class="row developer">
-                    <h3>&copy; 2021 ~ Tribal & Farmer, All Rights Reserved.</h3>
-                    <p>Designed By ~ <a href="https://github.com/T-E-Project/T.E-Project" target="_blank"> <span><i class="fa fa-github" aria-hidden="true"></i></span> Project Id ~ 17 </a></p>
-                    
-                </div>
-            <!-- Developer Contact -->
+
         </div>
 
     <!-- Footer -->
