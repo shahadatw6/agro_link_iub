@@ -207,3 +207,10 @@ VALUES (5000, 2, 5, 'Dhaka Warehouse', 1);
 INSERT INTO EMPLOYEE(emp_name, emp_contact, department,usertype, email, username,password) VALUES
 ('aman', '01877585773', 'delivery', '5','aman@gmail.com','shamanahal', '123'),
 ('zaman', '01947585773', 'delivery','5', 'zamans@gmail.com','zaman', '123');
+
+ALTER TABLE ORDER_TABLE
+MODIFY COLUMN order_ID INTEGER AUTO_INCREMENT;
+
+
+ALTER TABLE order_table
+MODIFY delivery_ID INTEGER NULL;

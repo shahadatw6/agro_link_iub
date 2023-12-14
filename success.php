@@ -17,7 +17,6 @@
                 <img src="<?php echo WEBSITE_PATH; ?>assets/success.jpg" alt="">
                 <h2>Your Order has been <br> placed successfully !</h2>
                 <h3>Your Order Id Is ~ <?php echo $_SESSION['ORDER_ID']?></h3>
-                <p>Future Communication Check Your Email.</p>
             </div>
         </div>
     </div>

@@ -95,7 +95,7 @@
         </div>
         <div class="row cart_checkout">
             <a href="<?php echo WEBSITE_PATH; ?>shop.php"><button class="btn">Continue Shopping</button></a>
-            <a href="<?php echo WEBSITE_PATH; ?>checkout?cart_total=<?php echo $cart_roow; ?>"><button class="btn">Checkout Now</button></a>
+            <a href="<?php echo WEBSITE_PATH; ?>checkout.php?cart_total=<?php echo $cart_roow; ?>"><button class="btn">Checkout Now</button></a>
         </div>
     </div>
 <!--X-Cart Page-X -->
