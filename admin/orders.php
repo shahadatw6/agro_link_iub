@@ -1,6 +1,12 @@
 <?php 
 include('top.php');
 
+if (isset($_POST['delete'])) {
+    $orderId = get_safe_value($_POST['order_id']);
+    mysqli_query($con, "DELETE FROM order_table WHERE order_ID='$orderId'");
+    redirect('orders.php');
+}
+
 $sql = "SELECT * FROM order_table ORDER BY order_ID DESC";
 $res = mysqli_query($con, $sql);
 ?>
@@ -61,6 +67,7 @@ $res = mysqli_query($con, $sql);
                                             </select>
                                         </div>
                                         <button type="submit" class="btn btn-primary btn-sm" name="change_status">Change Status</button>
+                                        <button type="submit" class="badge badge-danger delete_red hand_cursor" name="delete" onclick="return confirm('Are you sure you want to delete this order?')">Delete</button>
                                     </form>
                                     <?php
                                     if (isset($_POST['change_status'])) {
@@ -72,14 +79,8 @@ $res = mysqli_query($con, $sql);
                                         } else {
                                             echo "Error updating order status: " . mysqli_error($con);
                                         }
-                                        redirect('orders.php');
-
                                     }
                                     ?>
-                                </td>
-                                <td>
-                                    <a href="manage_product?id=<?php echo $user['product_ID'] ?>"><label class="badge badge-success hand_cursor">Edit</label></a>&nbsp;
-                                    <a href="?id=<?php echo $user['product_ID']?>&type=delete"><label class="badge badge-danger delete_red hand_cursor">Delete</label></a>
                                 </td>
                             </tr>
                             <?php
