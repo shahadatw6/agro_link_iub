@@ -40,7 +40,7 @@
                         <i class="fa fa-map-marker" aria-hidden="true"></i>
                     </div>
                     <div class="contact-info">
-                        <p>Bashundhara</p>
+                        <p>Bashundhara R/A,Block-B,Road 10</p>
                     </div>
                 </div>
                 <div class="contact-body">
