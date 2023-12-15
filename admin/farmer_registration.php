@@ -14,6 +14,7 @@
         $contact = mysqli_escape_string($con,$_POST['contact']);
         $username = mysqli_escape_string($con,$_POST['username']);
         $password = mysqli_escape_string($con,$_POST['password']);
+        $farmer_location = mysqli_escape_string($con,$_POST['farmer_location']);
         // $password = md5($password);
         $check = mysqli_query($con,"SELECT * FROM FARMER WHERE farmer_contact='$contact'");
 
@@ -22,7 +23,7 @@
                         You Are Already Register Please <a href='login'> LOGIN NOW </a>
                     </div>";
         }else{
-            mysqli_query($con, "INSERT INTO FARMER(farmer_Name, farmer_contact, username, password) VALUES('$name', '$contact', '$username', '$password')");
+            mysqli_query($con, "INSERT INTO FARMER(farmer_Name, farmer_contact, farmer_location, username, password) VALUES('$name', '$contact', '$farmer_location', '$username', '$password')");
             header('Location:Farmer_login.php');
            
             // $id = mysqli_insert_id($con);
