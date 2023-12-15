@@ -24,7 +24,15 @@
                     </div>";
         }else{
             mysqli_query($con, "INSERT INTO FARMER(farmer_Name, farmer_contact, farmer_location, username, password) VALUES('$name', '$contact', '$farmer_location', '$username', '$password')");
-            header('Location:Farmer_login.php');
+            echo "<script>
+            alert('Successfully Registered!');
+            window.location.href = 'Farmer_login.php';
+          </script>";
+        exit;
+            
+            // echo "<script>alert('Successfully Registered!');</script>";
+            // header('Location:Farmer_login.php');
+
            
             // $id = mysqli_insert_id($con);
             // $html=WEBSITE_PATH."admin/verify_admin?id=".$id;
