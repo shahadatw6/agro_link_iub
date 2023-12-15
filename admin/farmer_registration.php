@@ -147,8 +147,21 @@
                             <input type="text" name="name" placeholder="Enter Your Full Name" required>
                         </div>
                         <div class="form-input">
-                            <input type="text" name="contact" placeholder="Enter Your Contact" required>
+                            <input type="text" name="contact" placeholder="Enter Your Contact Number" required>
                         </div>
+                        <div class="form-input">
+                                <label for="location">Select Your Location:</label>
+                                <select id="location" name="farmer_location" required>
+                                    <option value="Chittagong">Chittagong</option>
+                                    <option value="Dhaka">Dhaka</option>
+                                    <option value="Khulna">Khulna</option>
+                                    <option value="Rajshahi">Rajshahi</option>
+                                    <option value="Sylhet">Sylhet</option>
+                                    <option value="Barishal">Barishal</option>
+                                    <option value="Mymensingh">Mymensingh</option>
+                                    <option value="Comilla">Comilla</option>
+                                </select>
+                            </div>
                         <div class="form-input">
                             <input type="text" name="username" placeholder="Enter Your Username" required>
                         </div>
