@@ -48,7 +48,7 @@
                         <i class="fa fa-phone" aria-hidden="true"></i>
                     </div>
                     <div class="contact-info">
-                        <p>800-123-4567</p>
+                        <p>01978627888</p>
                     </div>
                 </div>
                 <div class="contact-body">
@@ -56,7 +56,7 @@
                         <i class="fa fa-envelope-o" aria-hidden="true"></i>
                     </div>
                     <div class="contact-info">
-                        <p>example@sitename.com</p>
+                        <p>cow@sitename.com</p>
                     </div>
                 </div>
             </div>
