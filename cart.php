@@ -45,14 +45,14 @@
                         $product_iteam = mysqli_fetch_assoc(mysqli_query($con,"SELECT * FROM PRODUCT WHERE product_ID='$product_id'"));
             ?>
                 <div class="d-flex  shopping_cart_iteam">
-                    <img src="http://127.0.0.1/agro_link_iub/images/new%20data/crops%20and%20fruits.jpg" alt="">
+                    <img src="<?php echo $product_iteam['imagelink']; ?>" alt="">
                     <div class="cart_iteam_desc">
                         <h3><?php echo $product_iteam['product_name']; ?></h3>
                         <?php
                             $attei_sql = mysqli_query($con,"SELECT * FROM PRODUCT WHERE product_ID ='$product_id'");
                             $row_price=mysqli_fetch_assoc($attei_sql);
                          ?>
-                            <h4> &#8377; <?php echo $row_price['unitprice'];?> <span> for <?php echo $row_price['weight'];?></span></h4>
+                            <h4>  <?php echo $row_price['unitprice'];?> <span> for <?php echo $row_price['weight'];?></span></h4>
                         <ul class="d-flex">
                             <li>
                                 <i class="fa fa-star" aria-hidden="true"></i>
@@ -81,7 +81,7 @@
                         $total = $qunty * $price;
                         $cart_total = $cart_total + $total             
                     ?>
-                    <h3>&#8377; <?php echo $total ?></h3>
+                    <h3>&#2547; <?php echo $total ?></h3>
                    <?php $cart_row_id =$row['cart_ID']  ?>
                     <a href="?id=<?php echo $row['cart_ID'] ?>&type=delete"><i class="fa fa-times" aria-hidden="true"></i></a>
                 </div>
@@ -91,11 +91,11 @@
             } ?>
         </div>
         <div class="row shopping_cart_total">
-             <h3>Total : <span>&#8377; <?php echo $cart_total?></span></h3>
+             <h3>Total : <span>&#2547; <?php echo $cart_total?></span></h3>
         </div>
         <div class="row cart_checkout">
-            <a href="<?php echo WEBSITE_PATH; ?>shop"><button class="btn">Continue Shopping</button></a>
-            <a href="<?php echo WEBSITE_PATH; ?>checkout?cart_total=<?php echo $cart_roow; ?>"><button class="btn">Checkout Now</button></a>
+            <a href="<?php echo WEBSITE_PATH; ?>shop.php"><button class="btn">Continue Shopping</button></a>
+            <a href="<?php echo WEBSITE_PATH; ?>checkout.php?cart_total=<?php echo $cart_roow; ?>"><button class="btn">Checkout Now</button></a>
         </div>
     </div>
 <!--X-Cart Page-X -->

@@ -42,7 +42,6 @@ if (isset($_POST['submit'])) {
 
 
     $_name = $_SESSION['FARMER_ID'];
-	$uploadFolder = 'C:\xampp\htdocs\agro_link_iub\images\new data\\';
 
     if ($id == '') {
         $sql = "SELECT * FROM product WHERE product_name='$product_name'";
@@ -59,7 +58,7 @@ if (isset($_POST['submit'])) {
                 $image_error = "Invalid image format please select png/jpeg format";
             } else {
 				$image = $product_name. '_' . $_FILES['image']['name'];
-				$targetPath = 'C:/xampp/htdocs/agro_link_iub/images/new data/' . $image;
+				$targetPath = 'images/new data/product/' . $image;
 				move_uploaded_file($_FILES['image']['tmp_name'], $targetPath);
 				$imagelink = $targetPath;
 
@@ -74,7 +73,7 @@ if (isset($_POST['submit'])) {
                     $image_error = "Invalid image format please select png/jpeg format";
                 } else {
                     $image = $product_name. '_' . $_FILES['image']['name'];
-                    $targetPath = 'C:/xampp/htdocs/agro_link_iub/images/new data/' . $image;
+                    $targetPath = 'images/new data/product/' . $image;
                     move_uploaded_file($_FILES['image']['tmp_name'], $targetPath);
                     $imagelink = $targetPath;
                     mysqli_query($con, "UPDATE product SET 
@@ -98,7 +97,7 @@ if (isset($_POST['submit'])) {
                 $old_image = unlink($sql['imagelink']);
 				$image = $product_name. '_' . $_FILES['image']['name'];
 				
-                $targetPath = 'C:/xampp/htdocs/agro_link_iub/images/new data/' . $image;
+                $targetPath = 'images/new data/product/' . $image;
 				move_uploaded_file($_FILES['image']['tmp_name'], $targetPath);
 				$imagelink = $targetPath;
                 mysqli_query($con, "UPDATE product SET 

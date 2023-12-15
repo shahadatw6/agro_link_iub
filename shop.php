@@ -29,7 +29,7 @@ if (isset($_GET['c_id']) && $_GET['c_id'] > 0) {
             $insert_query = mysqli_query($con, "INSERT INTO CART(consumer_ID, product_ID, quantity) VALUES ('$user_id', '$c_id', '1')");
             if ($insert_query) {
                 echo "<script>alert('Congratulations! Your product was successfully added to cart');</script>";
-                redirect('shop');
+                redirect('shop.php');
             } else {
                 echo "<script>alert('Error adding product to cart');</script>";
             }
@@ -108,8 +108,7 @@ if (isset($_GET['c_id']) && $_GET['c_id'] > 0) {
                     <div class="product_card" style="border: 1px solid #ddd; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
 
                         <div style="position: relative;">
-                        ///image name need to fix
-                            <img src="http://127.0.0.1/agro_link_iub/images/new%20data/crops%20and%20fruits.jpg" alt="<?php echo $row['product_name']; ?>" style="width: 100%; display: block;">
+                            <img src="<?php echo $row['imagelink']; ?>" alt="<?php echo $row['product_name']; ?>" style="width: 100%; display: block;">
                             <div style="position: absolute; top: 10px; right: 10px; z-index: 2;">
                                 <a href="product-details?product_ID=<?php echo $row['product_ID']; ?>" style="background-color: #fff; border-radius: 50%; padding: 5px;">
                                     <i class="fa fa-eye" aria-hidden="true" style="color: green;"></i>
@@ -118,7 +117,7 @@ if (isset($_GET['c_id']) && $_GET['c_id'] > 0) {
                         </div>
                         <div style="padding: 15px; text-align: center;">
                             <h3 style="font-size: 1.5em;"><?php echo $row['product_name']; ?></h3>
-                            <h4>&#8377; <?php echo $row['unitprice']; ?> <span>for <?php echo $row['description']; ?></span></h4>
+                            <h4> &#2547; <?php echo $row['unitprice']; ?> <span>taka for <?php echo $row['description']; ?></span></h4>
                             <a href="?c_id=<?php echo $row['product_ID']; ?>&type=cart">
                                 <button style="background-color: #4CAF50; color: white; border: none; border-radius: 20px; padding: 10px 20px; cursor: pointer; margin-top: 10px;">Add To Cart</button>
                             </a>

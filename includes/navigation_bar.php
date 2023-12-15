@@ -3,7 +3,7 @@
 <nav class="d-flex fixed-top">
     <div class="nav_brand">
         <a href="<?php echo WEBSITE_PATH; ?>index.php">
-        <img src="<?php echo WEBSITE_PATH; ?>images/new data/logo.png" alt="" height="70" width="90" />
+            <span>Agro-Link</span>
         </a>
     </div>
     <div class="nav_menu ml-auto"> 
@@ -31,7 +31,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="<?php echo WEBSITE_PATH; ?>profile.php">Profile</a>
-                        <a class="dropdown-item" href="<?php echo WEBSITE_PATH; ?>orders.php">Orders</a>
+                        <a class="dropdown-item" href="<?php echo WEBSITE_PATH; ?>cart.php">Cart</a>
                         <a class="dropdown-item" href="<?php echo WEBSITE_PATH; ?>logout.php">LogOut</a>
                     </div>
                 </li>
