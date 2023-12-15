@@ -79,16 +79,16 @@
             <div class="nav_menu">
                 <ul class="d-flex">
                     <li>
-                        <a href="<?php echo WEBSITE_PATH; ?>index">home</a>
+                        <a href="<?php echo WEBSITE_PATH; ?>index.php">home</a>
                     </li>
                     <li>
-                        <a href="<?php echo WEBSITE_PATH; ?>about">about</a>
+                        <a href="<?php echo WEBSITE_PATH; ?>about.php">about</a>
                     </li>
                     <li>
-                        <a href="<?php echo WEBSITE_PATH; ?>shop">shop</a>
+                        <a href="<?php echo WEBSITE_PATH; ?>shop.php">shop</a>
                     </li>
                     <li>
-                        <a href="<?php echo WEBSITE_PATH; ?>contact">contact</a>
+                        <a href="<?php echo WEBSITE_PATH; ?>contact.php">contact</a>
                     </li>
                     <?php if(!isset($_SESSION['USER_LOGIN'])){?>
                         <li>
