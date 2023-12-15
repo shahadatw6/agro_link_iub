@@ -56,7 +56,7 @@
                         <i class="fa fa-envelope-o" aria-hidden="true"></i>
                     </div>
                     <div class="contact-info">
-                        <p>cow@sitename.com</p>
+                        <p>cow@agrolinkbd.com</p>
                     </div>
                 </div>
             </div>
