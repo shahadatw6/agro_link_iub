@@ -11,7 +11,7 @@ if (isset($_GET['type']) && $_GET['type'] !== '' && isset($_GET['id']) && $_GET[
 	if ($type == 'delete') {
 		$res = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM employee WHERE employee_ID='$id'"));
 		mysqli_query($con, "DELETE FROM employee WHERE employee_ID='$id'");
-		redirect('employee');
+		redirect('delivery_boy.php');
 	} else {
 		// Active/Deactive block
 		$status = 1;

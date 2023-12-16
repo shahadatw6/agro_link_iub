@@ -12,7 +12,7 @@
                 <h3>Get To Know Us</h3>
                 <ul class="d-flex">
                     <li>
-                        <a href="<?php echo WEBSITE_PATH; ?>index.html">Home</a>
+                        <a href="<?php echo WEBSITE_PATH; ?>index.php">Home</a>
                     </li>
                     <li>
                         <a href="<?php echo WEBSITE_PATH; ?>about.html">about</a>

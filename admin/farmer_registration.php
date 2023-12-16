@@ -3,7 +3,6 @@
     require_once '../includes/database.inc.php';
     include_once("../includes/constant.inc.php");
     include '../includes/function.inc.php';
-    include('../smtp/PHPMailerAutoload.php');
 
     $name = '';
     $contact = '';
@@ -32,7 +31,6 @@
         exit;
             
             echo "<script>alert('Successfully Registered!');</script>";
-            header('Location:Farmer_login.php');
 
            
             // $id = mysqli_insert_id($con);
