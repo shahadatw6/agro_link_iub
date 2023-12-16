@@ -64,7 +64,6 @@ INSERT INTO PRODUCT (product_name, product_Origin, availability, dateAdded, best
 
 CREATE TABLE ORDER_TABLE (
     order_ID INTEGER,
-    order_Date DATE NOT NULL,
     shipping_Mode VARCHAR(20) NOT NULL,
     consumer_ID INTEGER,
     product_ID INTEGER,
