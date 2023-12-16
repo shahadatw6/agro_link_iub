@@ -65,8 +65,7 @@ $res = mysqli_query($con, $sql);
                                             <?php elseif ($row['status'] == 0): ?>
                                                 <a href="?consumer_ID=<?php echo $row['consumer_ID']?>&type=active">
                                                     <label class="badge badge-info hand_cursor">Deactive</label>
-                                                </a>
-                                                
+                                                </a> 
                                             <?php endif; ?>
                                             <a href="?id=<?php echo $user['consumer_ID']?>&type=delete"><label class="badge badge-danger delete_red hand_cursor">Delete</label></a>
                                         </td>
