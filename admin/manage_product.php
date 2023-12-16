@@ -22,7 +22,7 @@ if (isset($_GET['id']) && $_GET['id'] > 0) {
 	$category_id = get_safe_value($row['category']);
     $product_detail = get_safe_value($row['description']);
     $added_on = date('Y-m-d h:i:s');
-	$unit_price = get_safe_value($row['unitprice']);
+	$unit_price = get_safe_value($row['UnitPrice']);
 	$product_origin = get_safe_value($row['product_Origin']);
 	$amount = get_safe_value($row['availability']);
 	$best_before = get_safe_value($row['bestBefore']);
@@ -34,7 +34,7 @@ if (isset($_POST['submit'])) {
     $product_name = get_safe_value($_POST['product']);
     $product_detail = get_safe_value($_POST['product_detail']);
     $added_on = date('Y-m-d h:i:s');
-	$unit_price = get_safe_value($_POST['Unit_price']);
+	$unit_price = get_safe_value($_POST['UnitPrice']);
 	$product_origin = get_safe_value($_POST['product_origin']);
 	$amount = get_safe_value($_POST['availability']);
 	$best_before = get_safe_value($_POST['bestBefore']);
@@ -69,7 +69,7 @@ if (isset($_POST['submit'])) {
             }
         } else {
             if ($_FILES['image']['type'] == '') {
-                if ($type != 'image/jpeg' && $type != 'image/png') {
+                if ($type != 'image/jpeg' && $type != 'image/png' ) {
                     $image_error = "Invalid image format please select png/jpeg format";
                 } else {
                     $image = $product_name. '_' . $_FILES['image']['name'];
@@ -152,7 +152,7 @@ $res_category = mysqli_query($con, "SELECT * FROM category WHERE status='1' ORDE
 
                     <div class="form-group">
                         <label for="exampleInputEmail3" required>Unit Price</label>
-                        <textarea name="Unit_Price" class="form-control" placeholder="Unit Price"><?php echo $unit_price ?></textarea>
+                        <textarea name="UnitPrice" class="form-control" placeholder="Unit Price"><?php echo $unit_price ?></textarea>
                     </div>                   
 
                     <div class="form-group">
