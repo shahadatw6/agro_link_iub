@@ -82,7 +82,7 @@ if (isset($_POST['login'])) {
                 <div class="form-input d-flex align-items-center flex-wrap">
                     <button type="submit" name="login">Login Now</button><br>
                     <br>
-                    <p>You are Not Signed Up, Please <a href="admin/farmer_registration.php">sign up Here</a>.</p>
+                    <p>You are Not Signed Up, Please <a href="<?php echo WEBSITE_PATH; ?>admin/farmer_registration.php">sign up Here</a>.</p>
                 </div>
             </form>
         </div>
