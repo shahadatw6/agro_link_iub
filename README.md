@@ -4,4 +4,4 @@ to get the project paper : [Course_Materials/Agro-Link.pdf](Course_Materials/Agr
 
 to get the presentation slide: [Agro_Slides](Course_Materials/AGRO.pptx)
 
-Explaination video: [Video](https://drive.google.com/drive/folders/1Yl5L3bykzWk4_FsdYClmZtGcdDGAjN-x?usp=sharing)
+Explaination video: [Video](https://drive.google.com/file/d/1RxCpY4O8E7dUkLWAIUQoAru0TiynjIof/view?usp=drive_link)
