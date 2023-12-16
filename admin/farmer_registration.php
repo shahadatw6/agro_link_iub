@@ -4,6 +4,7 @@
     include_once("../includes/constant.inc.php");
     include '../includes/function.inc.php';
     include('../smtp/PHPMailerAutoload.php');
+
     $name = '';
     $contact = '';
     $username = '';
@@ -30,8 +31,8 @@
           </script>";
         exit;
             
-            // echo "<script>alert('Successfully Registered!');</script>";
-            // header('Location:Farmer_login.php');
+            echo "<script>alert('Successfully Registered!');</script>";
+            header('Location:Farmer_login.php');
 
            
             // $id = mysqli_insert_id($con);
@@ -77,65 +78,48 @@
         <!--X-External Style Sheet  -X-->
 </head>
 <body>
-      <!--NavBar Start -->
-      <nav class="d-flex fixed-top">
-            <div class="nav_brand">
-                <a href="<?php echo WEBSITE_PATH; ?>index.php"><i class="fa fa-shopping-bag" aria-hidden="true"></i> <span>AgroLink IUB</span></a>
-            </div>
-            <div class="responsive_icon">
-                <i class="fa fa-bars" aria-hidden="true"></i>
-            </div>
-            <div class="nav_menu">
-                <ul class="d-flex">
-                    <li>
-                        <a href="<?php echo WEBSITE_PATH; ?>index.php">home</a>
-                    </li>
-                    <li>
-                        <a href="<?php echo WEBSITE_PATH; ?>about.php">about</a>
-                    </li>
-                    <li>
-                        <a href="<?php echo WEBSITE_PATH; ?>shop.php">shop</a>
-                    </li>
-                    <li>
-                        <a href="<?php echo WEBSITE_PATH; ?>contact.php">contact</a>
-                    </li>
-                    <?php if(!isset($_SESSION['USER_LOGIN'])){?>
-                        <li>
-                            <a href="<?php echo WEBSITE_PATH; ?>registration">signup</a>
-                        </li>
-                        <li>
-                            <a href="<?php echo WEBSITE_PATH; ?>login">login</a>
-                        </li>
-                    <?php }else{?>
-                        <li>
-                            <a href="#" class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Hello ,  <span><?php echo $_SESSION['USER_NAME']; ?></span>
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="<?php echo WEBSITE_PATH; ?>profile">Profile</a>
-                                <a class="dropdown-item" href="<?php echo WEBSITE_PATH; ?>orders">Orders</a>
-                                <a class="dropdown-item" href="<?php echo WEBSITE_PATH; ?>logout.">LogOut</a>
-                            </div>
-                        </li>
-                    <?php }?>
-                </ul>
-            </div>
-            <?php if(isset($_SESSION['USER_LOGIN'])){?>
-                <?php
-                    $user_id=$_SESSION['USER_ID'];
-                    $total_cart = mysqli_num_rows(mysqli_query($con,"SELECT * FROM CART WHERE consumer_ID='$user_id'"));
-                ?>
-                <div class="cart_nav">
-                    <a href="<?php echo WEBSITE_PATH; ?>cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <span><?php echo $total_cart; ?></span></a>
-                </div>
-              <?php }else{ ?>
-                  <div class="cart_nav">
-                    <a href="<?php echo WEBSITE_PATH; ?>cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <span>0</span></a>
-                  </div>
-                <?php } ?>  
-        </nav>
-    <!--X-NavBar End -X-->
-
+ <!--NavBar Start -->
+<nav class="d-flex fixed-top">
+    <div class="nav_brand">
+        <a href="<?php echo WEBSITE_PATH; ?>index.php">
+            <span>Agro-Link</span>
+        </a>
+    </div>
+    <div class="nav_menu ml-auto"> 
+        <ul class="d-flex">
+            <li>
+                <a href="<?php echo WEBSITE_PATH; ?>index.php">home</a>
+            </li>
+            <li>
+                <a href="<?php echo WEBSITE_PATH; ?>about.html">about</a>
+            </li>
+            <li>
+                <a href="<?php echo WEBSITE_PATH; ?>shop.php">shop</a>
+            </li>
+            <?php if(!isset($_SESSION['USER_LOGIN'])){?>
+                <li>
+                    <a href="<?php echo WEBSITE_PATH; ?>registration.php">signup</a>
+                </li>
+                <li>
+                    <a href="<?php echo WEBSITE_PATH; ?>login.php">login</a>
+                </li>
+            <?php }else{?>
+                <li>
+                    <a href="#" class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Hello ,  <span><?php echo $_SESSION['USER_NAME']; ?></span>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="<?php echo WEBSITE_PATH; ?>profile.php">Profile</a>
+                        <a class="dropdown-item" href="<?php echo WEBSITE_PATH; ?>cart.php">Cart</a>
+                        <a class="dropdown-item" href="<?php echo WEBSITE_PATH; ?>logout.php">LogOut</a>
+                    </div>
+                </li>
+            <?php }?>
+        </ul>
+    </div>
+ 
+</nav>
+<!--X-NavBar End -X-->
     <!-- Registration Page -->
         <div class="container registration">
             <div class="row heading">
@@ -186,78 +170,66 @@
             </div>
         </div>
     <!--X- Registration Page -X-->
-    <!-- Footer -->
-    <div class="container-fluid footer_bg">
-            <div class="row">
-                <div class="col-xl-3">
-                    <div class="footer_logo">
-                        <a href="#"><i class="fa fa-shopping-bag" aria-hidden="true"></i> <span>AgroLINK IUB</span></a>
-                        <ul class="d-flex">
-                            <li>
-                                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-xl-3">
-                    <h3>Get To Know Us</h3>
-                    <ul class="d-flex">
-                        <li>
-                            <a href="#">Home</a>
-                        </li>
-                        <li>
-                            <a href="#">about</a>
-                        </li>
-                        <li>
-                            <a href="#">shop</a>
-                        </li>
-                        <li>
-                            <a href="#">contact</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-xl-3">
-                    <h3>Make Mony With Us</h3>
-                    <ul class="d-flex footer_help">
-                        <li>
-                            <a href="<?php echo WEBSITE_PATH; ?>admin/farmer_registration.php"><span> <i class="fa fa-shopping-bag" aria-hidden="true"></i></span> Sell Your Product</a>
-                        </li>
-                        <li>
-                            <a href="<?php echo WEBSITE_PATH; ?>delivery_boy/login"><span>  <i class="fa fa-motorcycle" aria-hidden="true"></i></span> Delivery Boy Login</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-xl-3">
-                    <h3>Let Us Help You</h3>
-                    <ul class="d-flex footer_help">
-                        <li>
-                            <a href="<?php echo WEBSITE_PATH; ?>whether">Current Whether Information.</a>
-                        </li>
-                        <li>
-                            <a href="<?php echo WEBSITE_PATH; ?>prices">Current Market Prices.</a>
-                        </li>
-                        <li>
-                            <a href="#">Any problem Selling With Us.</a>
-                        </li>
-                        <li>
-                            <a href="#">Information About Platform.</a>
-                        </li>
-                        <li>
-                            <a href="#">Live Review.</a>
-                        </li>
-                    </ul>
+<!-- Footer -->
+<div class="container-fluid footer_bg">
+        <div class="row">
+            <div class="col-xl-3">
+                <div class="footer_logo">
+                    <a href="<?php echo WEBSITE_PATH; ?>index.php"></i>
+                    <img src="<?php echo WEBSITE_PATH; ?>images/new data/logo.png" alt="" height="70" width="90" />
+
                 </div>
             </div>
-
+            <div class="col-xl-3">
+                <h3>Get To Know Us</h3>
+                <ul class="d-flex">
+                    <li>
+                        <a href="<?php echo WEBSITE_PATH; ?>index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo WEBSITE_PATH; ?>about.html">about</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo WEBSITE_PATH; ?>shop.php">shop</a>
+                    </li>
+                    <li>
+                        <a href="">contact</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xl-3">
+                <h3>Make Mony With Us</h3>
+                <ul class="d-flex footer_help">
+                    <li>
+                        <a href="<?php echo WEBSITE_PATH; ?>admin/admin_registration"><span> <i class="fa fa-shopping-bag" aria-hidden="true"></i></span> Sell Your Product</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo WEBSITE_PATH; ?>delivery_boy/login"><span>  <i class="fa fa-motorcycle" aria-hidden="true"></i></span> Delivery Boy Login</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xl-3">
+                <h3>Let Us Help You</h3>
+                <ul class="d-flex footer_help">
+                    <li>
+                        <a href="<?php echo WEBSITE_PATH; ?>prices">Current Market Prices.</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo WEBSITE_PATH; ?>chat">Any problem Selling With Us.</a>
+                    </li>
+                </ul>
+            </div>
         </div>
+        <!-- Developer Contact -->
+            <div class="row developer">
+                <h3>&copy; 2023 ~ AgroLink Limited, All Rights Reserved.</h3>
+                <p>Designed By ~Team AgroLink <a href="https://github.com/shahadatw6/agro_link_iub" target="_blank"> <span><i class="fa fa-github" aria-hidden="true"></i></span> Team AgroLink </a></p>
+                
+            </div>
+        <!-- Developer Contact -->
+    </div>
 
-    <!-- Footer -->
+<!-- Footer -->
 </body>
 </html>
 
