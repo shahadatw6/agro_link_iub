@@ -113,25 +113,7 @@ INSERT INTO VEHICLE_REGISTRATION(Registration_ID,model_no, capacity, delivery_Of
 
 ('Dhaka Metro L - 23455', 'Ford ', 5, 101, '12:30:00'),
 ('Dhaka Metro L - 23456', 'Eicher', 8, 102, '14:45:00'),
-('Dhaka Metro L - 23457', 'Mitsubishi', 7, 103, '11:15:00');
-
-
-
-
-CREATE TABLE TRANSACTION (
-    Transaction_ID INTEGER,
-    payment_amount DECIMAL(12, 2),
-    pending BOOLEAN,
-    completed BOOLEAN,
-    failed BOOLEAN,
-    employee_ID INTEGER,
-    order_ID INTEGER,
-    farmer_ID INTEGER,
-    CONSTRAINT transactionPK PRIMARY KEY (Transaction_ID),
-    CONSTRAINT fk_transaction_employee FOREIGN KEY (employee_ID) REFERENCES EMPLOYEE(employee_ID),
-    CONSTRAINT fk_transaction_order FOREIGN KEY (order_ID) REFERENCES ORDER_TABLE(order_ID),
-    CONSTRAINT fk_transaction_farmer FOREIGN KEY (farmer_ID) REFERENCES FARMER(farmer_ID)
-);
+('Dhaka Metro L - 23457', 'Mitsubishi', 7, 103, '11:15:00')
 
 
 CREATE TABLE CART (
