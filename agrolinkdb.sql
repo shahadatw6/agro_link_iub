@@ -212,3 +212,11 @@ MODIFY COLUMN order_ID INTEGER AUTO_INCREMENT;
 
 ALTER TABLE order_table
 MODIFY delivery_ID INTEGER NULL;
+
+-- Insert data into DELIVERY table
+INSERT INTO DELIVERY(delivery_date, Tregistration_no, delivery_empID, warehouse_ID, consumer_ID)
+VALUES ('2023-12-17', 'Dhaka Metro L - 23458', 1, 1, 1);
+
+-- Insert data into ORDER_TABLE table
+INSERT INTO ORDER_TABLE(order_Date, shipping_Mode, consumer_ID, product_ID, delivery_ID, order_Status)
+VALUES ('2023-12-17 08:00:00', 'Express', 1, 1, 1, 'Pending');
