@@ -1,7 +1,7 @@
 <?php
     include 'includes/navigation_bar.php';
     if(!isset($_SESSION['USER_LOGIN'])){
-        header('Location:login?type=msg&page=Cart');
+        header('Location:login.php?type=msg&page=Cart.php');
     }
     $qunty ='';
     $price ='';

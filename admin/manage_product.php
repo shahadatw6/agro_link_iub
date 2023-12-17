@@ -120,7 +120,6 @@ if (isset($_POST['submit'])) {
     }
 }
 
-$res_category = mysqli_query($con, "SELECT * FROM category WHERE status='1' ORDER BY category");
 ?>
 
 <div class="row">

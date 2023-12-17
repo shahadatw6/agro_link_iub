@@ -3,9 +3,7 @@ include('top.php');
 
 $condition = '';
 
-if ($_SESSION['ADMIN_ROLE'] == '0') {
-    redirect('product');
-}
+
 
 if (isset($_GET['type']) && $_GET['type'] !== '' && isset($_GET['consumer_ID']) && $_GET['consumer_ID'] > 0) {
     $type = get_safe_value($_GET['type']);
