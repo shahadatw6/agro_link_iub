@@ -2,12 +2,10 @@
 include 'includes/navigation_bar.php';
 
 
-// Initializing variables
 $c_id = '';
 $user_id = '';
 $selected = '';
 
-// Check if the product ID is set and valid
 if (isset($_GET['c_id']) && $_GET['c_id'] > 0) {
    
     $c_id = mysqli_real_escape_string($con, $_GET['c_id']);
@@ -21,7 +19,6 @@ if (isset($_GET['c_id']) && $_GET['c_id'] > 0) {
         header('Location:login.php');
         exit;
     } else {
-        // If the product is already in the cart
         if (mysqli_num_rows($cart_check) > 0) {
             echo "<script>alert('Your Selected Product is Already in Cart, Please Check your Cart Details.');</script>";
             redirect('shop.php');
@@ -47,24 +44,16 @@ if (isset($_GET['c_id']) && $_GET['c_id'] > 0) {
             </div>
         </div>
 
-    <!-- Category and Product Display Section -->
     <div class="wrapp d-flex">
-        <!-- Left Side - Categories -->
         <div class="left_side">
     <p>Categories</p>
     <div class="category_display">
         <ul>
             <li>
-                <div class="category_body text-center">
-                    <p><a href="shop?type=forest" class="text-success">Forest Product</a> <span class="pl-2"><a href="shop?type=tribal" class="text-success">Tribal Product</a></span></p>
-                </div>
-            </li>
-            <li>
                 <div class="category_body">
                     <a href="shop"><p>All Products</p></a>
                 </div>
             </li>
-            <!-- Dummy Category 1 -->
             <li>
                 <div class="category_body">
                     <p>Fruits & Vegetables</p>
@@ -76,7 +65,6 @@ if (isset($_GET['c_id']) && $_GET['c_id'] > 0) {
                     </div>
                 </div>
             </li>
-            <!-- Dummy Category 2 -->
             <li>
                 <div class="category_body">
                     <p>Dairy & Bakery</p>
@@ -88,7 +76,6 @@ if (isset($_GET['c_id']) && $_GET['c_id'] > 0) {
                     </div>
                 </div>
             </li>
-            <!-- Additional categories can be added here -->
         </ul>
     </div>
 </div>

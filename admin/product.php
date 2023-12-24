@@ -22,7 +22,6 @@ if (isset($_GET['type']) && $_GET['type'] !== '' && isset($_GET['id']) && $_GET[
             unlink($imagePath);
         }
         mysqli_query($con, "DELETE FROM product WHERE product_ID='$id'");
-        mysqli_query($con, "DELETE FROM product_detailes WHERE product_id='$id'");
         redirect('product');
     }
 }
