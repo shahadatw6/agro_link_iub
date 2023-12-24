@@ -137,8 +137,8 @@ if(isset($_POST['update'])){
     var_dump($product_iteam);
 
     mysqli_query($con,"UPDATE consumer SET consumer_name='$name' WHERE consumer_ID='$user_id'");
-    $query = "INSERT INTO order_table(order_Date, shipping_Mode, consumer_ID, product_ID, order_Status, delivery_ID) VALUES
-        ('" . date("Y-m-d H:i:s") . "', 'Express', '$user_id', '" . $product_iteam['product_ID'] . "', 'Pending', '1')";
+    $query = "INSERT INTO order_table(order_Date, shipping_Mode, consumer_ID, product_ID, order_Status) VALUES
+        ('" . date("Y-m-d H:i:s") . "', 'Express', '$user_id', '" . $product_iteam['product_ID'] . "', 'Pending')";
 
     $result = mysqli_query($con, $query);
 
