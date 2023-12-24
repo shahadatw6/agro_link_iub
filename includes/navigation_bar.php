@@ -1,5 +1,5 @@
 <?php include 'top.php'; ?>
-<!--NavBar Start -->
+
 <nav class="d-flex fixed-top">
     <div class="nav_brand">
         <a href="<?php echo WEBSITE_PATH; ?>index.php">
@@ -40,4 +40,3 @@
     </div>
  
 </nav>
-<!--X-NavBar End -X-->

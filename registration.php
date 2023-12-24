@@ -18,7 +18,6 @@
 
 
 
-
         mysqli_query($con,"INSERT INTO consumer (consumer_name,username,password,consumer_contact,house_no,road,district) 
         VALUES('$consumer_name','$username','$password','$consumer_contact','$house_no','$road','$district')");
         $id = mysqli_insert_id($con);
@@ -30,7 +29,7 @@
         }
 ?>
 
-
+<!-- Registration Page -->
     <div class="container registration">
         <div class="row heading">
             <div class="col-xl-12">
@@ -74,7 +73,7 @@
             </div>
         </div>
     </div>
-
+<!--X- Registration Page -X-->
 
 <?php
     include 'includes/footer.php';
