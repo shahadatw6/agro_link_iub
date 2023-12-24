@@ -5,7 +5,7 @@
     }
     if(isset($_GET['id']) && $_GET['id']>0){
         $id= mysqli_escape_string($con,$_GET['id']);
-        mysqli_query($con,"DELETE FROM user_cart WHERE user_id ='$id'");
+        mysqli_query($con,"DELETE FROM cart WHERE consumer_ID ='$id'");
     }
 
 ?>
