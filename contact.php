@@ -2,7 +2,6 @@
     require_once 'includes/database.inc.php';
     include_once("includes/constant.inc.php");
     include 'includes/navigation_bar.php';
-    include('smtp/PHPMailerAutoload.php');
 
     $name ='';
     $email ='';
