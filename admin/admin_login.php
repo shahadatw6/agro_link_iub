@@ -27,8 +27,7 @@
     if(isset($_POST['login'])){
         $username = mysqli_escape_string($con,$_POST['username']);
         $password = mysqli_escape_string($con,$_POST['password']);
-        // $password = md5($password);
-        // echo $password;
+
         $check = mysqli_query($con,"SELECT * FROM employee WHERE emp_name = '$username' AND password='$password' AND usertype = 0 ");
         $res = mysqli_fetch_assoc($check);
         if(mysqli_num_rows($check)){

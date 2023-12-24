@@ -1,6 +1,5 @@
 <?php 
 include('top.php');
-include('../smtp/PHPMailerAutoload.php');
 if(isset($_GET['id']) && $_GET['id']>0){
 	$id=get_safe_value($_GET['id']);
 

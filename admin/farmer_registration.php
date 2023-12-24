@@ -32,10 +32,6 @@
             
             echo "<script>alert('Successfully Registered!');</script>";
 
-           
-            // $id = mysqli_insert_id($con);
-            // $html=WEBSITE_PATH."admin/verify_admin?id=".$id;
-            // send_email($email,$html,'Verify your emain id');
 
         }
     }
@@ -129,10 +125,6 @@
                 <?php echo $msg; ?>
             <div class="row signup-form-body">
                 <div class="col-xl-6">
-                    <!-- <div class="social_register">
-                        <button class="btn"><span><i class="fa fa-google" aria-hidden="true"></i></span> &nbsp; SignUp With Google </button>
-                        <p>OR</p>
-                    </div> -->
                     <form method="post" action="">
                         <div class="form-input">
                             <input type="text" name="name" placeholder="Enter Your Full Name" required>
