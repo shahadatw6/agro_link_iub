@@ -56,8 +56,8 @@ CREATE TABLE PRODUCT (
 );
 
 INSERT INTO PRODUCT (product_name, product_Origin, availability, dateAdded, bestBefore, product_Size, weight, imagelink, category, unitprice, description) VALUES 
-('Rice', 'Bangladesh', 200, '2023-01-15', '2024-01-15', 'Large', 5.0, 'images\\new data\\shahal.jpg', 'Grains', 3.99, 'High-quality rice from local farms.'), 
-('Mango', 'Bangladesh', 150, '2023-03-01', '2023-08-31', 'Medium', 0.3, 'images\\new data\\tasdir.jpg', 'Fruits', 1.99, 'Fresh and juicy mangoes harvested in season.');
+('Rice', 'Bangladesh', 200, '2023-01-15', '2024-01-15', 'Large', 5.0, 'images\\new data\\product\\1.Rice.jpeg', 'Grains', 3.99, 'High-quality rice from local farms.'), 
+('Mango', 'Bangladesh', 150, '2023-03-01', '2023-08-31', 'Medium', 0.3, 'images\\new data\\product\\2.Mango.jpg', 'Fruits', 1.99, 'Fresh and juicy mangoes harvested in season.');
 
 
 
@@ -202,3 +202,8 @@ VALUES ('2023-12-17', 'Dhaka Metro L - 23458', 1, 1, 1);
 -- Insert data into ORDER_TABLE table
 INSERT INTO ORDER_TABLE(order_Date, shipping_Mode, consumer_ID, product_ID, delivery_ID, order_Status)
 VALUES ('2023-12-17 08:00:00', 'Express', 1, 1, 1, 'Pending');
+
+
+-- Insert data into DELIVERY table
+INSERT INTO DELIVERY(delivery_date, Tregistration_no, delivery_empID, warehouse_ID, consumer_ID)
+VALUES ('2023-12-17', 'Dhaka Metro L - 23458', 1, 1, 1);
