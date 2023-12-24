@@ -1,6 +1,5 @@
 <?php
     include 'includes/navigation_bar.php';
-    include('smtp/PHPMailerAutoload.php');
     $consumer_name = '';
     $username = '';
     $password = '';
@@ -17,7 +16,7 @@
         $road = mysqli_escape_string($con,$_POST['road']);
         $district = mysqli_escape_string($con, $_POST['district']);
 
-        //$password = md5($password);
+
 
 
         mysqli_query($con,"INSERT INTO consumer (consumer_name,username,password,consumer_contact,house_no,road,district) 
@@ -31,7 +30,7 @@
         }
 ?>
 
-<!-- Registration Page -->
+
     <div class="container registration">
         <div class="row heading">
             <div class="col-xl-12">
@@ -43,10 +42,7 @@
 
         <div class="row signup-form-body">
             <div class="col-xl-6">
-                <!-- <div class="social_register">
-                    <button class="btn"><span><i class="fa fa-google" aria-hidden="true"></i></span> &nbsp; SignUp With Google </button>
-                    <p>OR</p>
-                </div> -->
+
                 <form method="post" action="">
                     <div class="form-input">
                         <input type="text" name="name" placeholder="Enter Your Full Name" required>
@@ -78,7 +74,7 @@
             </div>
         </div>
     </div>
-<!--X- Registration Page -X-->
+
 
 <?php
     include 'includes/footer.php';
