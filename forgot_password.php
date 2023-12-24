@@ -1,6 +1,5 @@
 <?php
     include 'includes/navigation_bar.php';
-    include('smtp/PHPMailerAutoload.php');
     $email = '';
     $msg='';
     if(isset($_POST['signup'])){
