@@ -3,7 +3,6 @@
     require_once '../includes/database.inc.php';
     include_once("../includes/constant.inc.php");
     include '../includes/function.inc.php';
-    include('../smtp/PHPMailerAutoload.php');
     $email = '';
     $msg='';
     if(isset($_POST['signup'])){
