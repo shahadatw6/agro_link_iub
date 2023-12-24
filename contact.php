@@ -16,8 +16,7 @@
         $message =  mysqli_escape_string($con,$_POST['contact_message']);
         
         mysqli_query($con,"INSERT INTO contact(contact_name, contact_email, contact_subject, contact_message) VALUES('$name','$email','$subject','$message')");
-        // $html="<p><b>Thank You $name </b> ! <br> for connecting with us, Will get back to you shortly.</p>";
-        // send_email($email,$html,'Contact~E-marketplace');
+
         echo "<script>
                 alert(`Thank You $name for connecting with us, Will get back to you shortly !`);
             </script>"; 
