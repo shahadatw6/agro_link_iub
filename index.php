@@ -31,20 +31,13 @@
     <link rel="stylesheet" href="css/responsive.css" />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/custom.css" />
-
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
   </head>
   <body>
-    <!-- Start Navigation -->
 
     <nav
       class="navbar navbar-expand-lg navbar-light bg-light navbar-default bootsnav"
     >
       <div class="container">
-        <!-- Start Header Navigation -->
         <div class="navbar-header">
           <button
             class="navbar-toggler"
@@ -66,9 +59,7 @@
               height="85"
           /></a>
         </div>
-        <!-- End Header Navigation -->
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navbar-menu">
           <ul
             class="nav navbar-nav ml-auto"
